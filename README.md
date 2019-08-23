@@ -107,24 +107,24 @@ Toda vez que for alterar algo em um projeto versionado com o Git, crie uma branc
 
 
 
-*   Criar um novo branch **git checkout teste**
-*   Criar e trocar de uma só vez** git checkout -b teste**
-*   Movendo o working directory para o ambiente de teste** git checkout teste**
-*   Para retornar **git checkout master**
-*   Transferindo as alterações do ‘teste’ para o ‘master’ **git merge teste**
-*   Deletar um branch **git branch -d teste**
+*   Criar um novo branch ```git checkout teste```
+*   Criar e trocar de uma só vez  ```git checkout -b teste```
+*   Movendo o working directory para o ambiente de teste ```git checkout teste```
+*   Para retornar ```git checkout master```
+*   Transferindo as alterações do ‘teste’ para o *master* ```git merge teste```
+*   Deletar um branch ```git branch -d teste```
 
 **Fazendo o merge**
 
-Com o commit feito a nova branch tem uma versão diferente da master. Podemos confirmar que estamos com diferença entre master e nossa branch rodando o seguinte comando (ainda na branch nova): **git diff master**
+Com o commit feito a nova branch tem uma versão diferente da master. Podemos confirmar que estamos com diferença entre master e nossa branch rodando o seguinte comando (ainda na branch nova): ```git diff master```
 
-Sabendo que, realmente, a branch nova está com diferenças da master, é preciso fazer um merge para juntar** **os novos commits, feitos na nova branch, com a master. Para isso você precisa voltar para a master e rodar o comando **git merge.**
+Sabendo que, realmente, a branch nova está com diferenças da master, é preciso fazer um merge para juntaros novos commits, feitos na nova branch, com a master. Para isso você precisa voltar para a master e rodar o comando ```git merge```.
 
-Para voltar para a master, usamos o comando **git checkout master** e para fazer o merge, o comando **git merge nome da branch**
+Para voltar para a master, usamos o comando ```git checkout master``` e para fazer o merge, o comando ```git merge nome da branch```
 
 **Merge com conflitos**
 
-Caso tenha conflitos, os resolvemos “na mão” e depois salvamos as alterações com o comando **commit.**
+Caso tenha conflitos, os resolvemos *na mão* e depois salvamos as alterações com o comando **commit.**
 
 **Pull Request**
 
@@ -141,68 +141,68 @@ Siga os passos abaixo para criar uma _Pull Request_ no GitHub:
 5. Clique no botão **Create pull request**.
 
 
-## **E o git pull?**
+**E o GIT PULL?**
 
-Ainda existe um comando importante neste processo, que é o **git pull**. Ele é usado para trazer todas as modificações que estão no repositório para o seu projeto local. Isso é vital quando existem projetos mantidos por mais de uma pessoa, ou se você possui duas máquinas e precisa manter a sincronia entre elas.
+Ainda existe um comando importante neste processo, que é o *git pull*. Ele é usado para trazer todas as modificações que estão no repositório para o seu projeto local. Isso é vital quando existem projetos mantidos por mais de uma pessoa, ou se você possui duas máquinas e precisa manter a sincronia entre elas.
 
 **Tag e Release**
 
-A **tag **é um ponteiro para um commit específico. Esse ponteiro pode ser super carregado com algumas informações adicionais (identidade do criador da tag, uma descrição ...).
+A *tag* é um ponteiro para um commit específico. Esse ponteiro pode ser super carregado com algumas informações adicionais (identidade do criador da tag, uma descrição ...).
 
-A **tag **é um conceito de git enquanto que um **Release** é o conceito de nível mais alto do GitHub.
+A *tag* é um conceito de git enquanto que um *Release* é o conceito de nível mais alto do GitHub.
 
 De acordo com o post de anúncio oficial do blog do GitHub: "Releases são objetos de primeira classe com changelogs e ativos binários que apresentam um histórico de projeto completo além dos artefatos do Git."
 
 
 
-*   Criar uma tag (no commit atual) **git tag -a <v1.0> -m "Versão 1.0"**
-*   Criar uma tag (num commit antigo) **git tag -a v0.0 CHAVE -m "Versão 0.0"**
-*   Para listar as tags **git tag**
-*   Ver detalhes da tag **git show v0.0**
-*   Reverter a versão **git checkout v0.0**
+*   Criar uma tag (no commit atual) ```git tag -a <v1.0> -m "Versão 1.0"```
+*   Criar uma tag (num commit antigo) ```git tag -a v0.0 CHAVE -m "Versão 0.0"```
+*   Para listar as tags ```git tag```
+*   Ver detalhes da tag ```git show v0.0```
+*   Reverter a versão ```git checkout v0.0```
 
 **Comandos**
 
-**git init **: Server para criar um novo repositório.
+```git init```: Server para criar um novo repositório.
 
 Como usar : Criar uma pasta e abrir no terminal e digite o comando git init.
 
-**git clone** : Serve para clonar um repositório já existente.
+```git clone``` : Serve para clonar um repositório já existente.
 
-Como usar** **: Crie uma pasta e abra no terminal então digite  git clone [https://github.com/caminho/para/repositório](https://github.com/caminho/para/repositório).
+Como usar: Crie uma pasta e abra no terminal então digite  git clone [https://github.com/caminho/para/repositório](https://github.com/caminho/para/repositório).
 
-**Início do Fluxo:**
+**Início do Fluxo a ser seguido.**
 
-**git add **: Serve para adicionar uma mudança em seu repositório.
+```git add```: Serve para adicionar uma mudança em seu repositório.
 
-Como usar : Abra a pasta do seu repositório no terminal e digite git add * (se for adicionar todas as mudanças feitas) ou git add <arquivo> para adicionar uma única mudança a ser feita.
+Como usar : Abra a pasta do seu repositório no terminal e digite ```git add *```: (se for adicionar todas as mudanças feitas) ou ```git add <arquivo>```: para adicionar uma única mudança a ser feita.
 
-**git commit -m** : Serve para você realmente confirma as alterações.
+```git commit -m``` : Serve para você realmente confirma as alterações.
 
-Como usar** **: Após usar o comando git add você usa o git commit -m para aprovar as mudanças e escreva uma mensagem falando sobre oque é esse commit exemplo git commit -m “frontend - navbar debug”.
+Como usar: Após usar o comando git add você usa o git commit -m para aprovar as mudanças e escreva uma mensagem falando sobre oque é esse commit exemplo ```git commit -m “frontend - navbar debug”```.
 
-**git push** : Serve para você enviar as alterações para o repositório.
+```git push```: Serve para você enviar as alterações para o repositório.
 
-Como usar : Após usar o comando git commit você usa o git push origin <branch que você está trabalhando> .
+Como usar : Após usar o comando git commit você usa o ```git push origin <branch que você está trabalhando>``` .
 
-**Fim do Fluxo: **
+**Fim do Fluxo.**
 
-**git checkout -b <nome da branch> **: Serve para você criar uma branch chamada test e usá la.
+```git checkout -b <nome da branch> ```: Serve para você criar uma branch chamada test e usá la.
 
-**git checkout <branch> **: Serve para você seleciona a branch que você quer usar.
+```git checkout <branch> ```: Serve para você seleciona a branch que você quer usar.
 
-**git branch -d <nome da branch>** : Serve para você deletar um branch.
+```git branch -d <nome da branch>``` : Serve para você deletar um branch.
 
-**git push origin <nome da branch>** : Após você criar uma branch ela não existe para os outros membros então para aparecer você pode usar o comando git push origin <nome da branch>
+```git push origin <nome da branch>``` : Após você criar uma branch ela não existe para os outros membros então para aparecer você pode usar o comando ```git push origin <nome da branch>```
 
-**git pull** : Serve para você baixar as alterações feitas no repositório.
+```git pull``` : Serve para você baixar as alterações feitas no repositório.
 
-**git merge <nome da branch> **: Serve para você mesclar a branch com outra branch ativa.
+```git merge <nome da branch>```: Serve para você mesclar a branch com outra branch ativa.
 
-**git tag <nome> <id da issues>** : Serve para você adicionar um tag é recomendado para rotular releases do software.
+```git tag <nome> <id da issues>``` : Serve para você adicionar um tag é recomendado para rotular releases do software.
 
-**git log** : Serve para você pegar o id das issues.
+```git log``` : Serve para você pegar o id das issues.
 
-**git checkout  -- <arquivo> **: Serve para sobrescrever algum arquivo com a sua versão mais recente ‘é usado quando é feito algo errado’ 
+```git checkout  -- <arquivo>```: Serve para sobrescrever algum arquivo com a sua versão mais recente ‘é usado quando é feito algo errado’ 
 
-Caso você queira remover todas commits locais e recuperar o histórico mais recente do servidor use os comandos : **git fetch origin **depois** git reset --hard origin/master.**
+Caso você queira remover todas commits locais e recuperar o histórico mais recente do servidor use os comandos : ```git fetch origin``` depois ```git reset --hard origin/master```.
