@@ -1,20 +1,18 @@
 # GIT
 
-**O que é GIT?**
+## **O que é?**
 
-Git é um sistema de controle de versão de arquivos. Através deles podemos desenvolver projetos na qual diversas pessoas podem contribuir simultaneamente no mesmo, editando e criando novos arquivos e permitindo que os mesmos possam existir sem o risco de suas alterações serem sobrescritas.
-
-
-**Instalando GIT.**
+O Git é um sistema de controle de versão de arquivos. Através dele podemos desenvolver projetos na qual outras pessoas podem contribuir editando e criando novos arquivos e permitindo que os mesmos possam existir sem o risco de suas alterações serem sobrescritas.
 
 
-O git é um programa que pode ser baixado e instalado para Windows, Mac, ou então através do comando ```sudo apt-get install git``` para plataformas Linux/Debian, como o Ubuntu. 
+## **Instalando o GIT.**
+
+O git pode ser baixado e instalado para Windows, Mac, ou então através do comando ```sudo apt-get install git``` para sistemas Linux. 
 
 
-**Configurando o GIT.**
+## **Configurando o GIT.**
 
-
-Existem 2 pequenos passos para configurar o seu GIT para ter um acesso mais simplificado ao github. Aqui estaremos estabelecendo que, sempre que necessitar, você irá fornecer o seu login e senha ao GitHub.
+Existem 2 passos para configurar o seu GIT para ter um acesso mais simplificado ao github.
 
 ```git config --global user.name "YOUR NAME"```
 
@@ -22,89 +20,74 @@ Existem 2 pequenos passos para configurar o seu GIT para ter um acesso mais simp
 
 # GitHub
 
-**O que é?**
+## **O que é?**
 
-O Github é um serviço web que oferece diversas funcionalidades extras aplicadas ao git, é um sistema de gerenciamento de projetos e versões de códigos assim como uma plataforma de rede social criado para desenvolvedores.
-
-Se o Git é o coração do GitHub, então o Hub é a alma. O hub de GitHub é o que torna uma linha de comando, como o Git, a maior rede social para desenvolvedores do mundo.
+O Github é um serviço web que oferece funcionalidades aplicadas ao git, é um sistema de gerenciamento de projetos e versões de códigos assim como uma plataforma de rede social para desenvolvedores.
 
 
-**Criando a conta no GitHub.**
+## **Criando a conta no GitHub.**
 
-
-O github não possui instalação, ele é um serviço, e caso você não tenha uma conta, chegou a hora de criá-la.
+O github não possui instalação, ele é um serviço, só é preciso criar uma conta.
 
 Para criar uma conta no GitHub, acesse o site [github.com](https://github.com/) e preencha o formulário principal.
 
 # DEFINIÇÕES
 
+## **Repositório**
 
-**Repositório**
-
-
-Repositório, ou repo, é um diretório onde os arquivos do seu projeto ficam armazenados. Ele pode ficar em um depósito do GitHub ou em seu computador. Você pode armazenar códigos, imagens, áudios, ou qualquer outra coisa relacionada ao projeto no diretório. ```git init ``` para criar um novo repositório
+Repositório é um diretório onde os arquivos do seu projeto ficam armazenados. Ele pode ficar em um depósito do GitHub e/ou em seu computador. Digite ```git init ``` para criar um novo repositório.
 
 
-**Vamos clonar!**
+## **Clonando repositórios**
 
-
-Tendo o git configurado para utilizar o github e um projeto no github criado, precisamos trazer este projeto para o nosso git, e este processo se chama clonar. Então, quando você quiser começar um projeto utilizando git, você cria ele e clona na sua máquina. O comando para clonar o projeto é ```git clone "url"``` veja:
+Quando você quiser começar um projeto utilizando git, você cria ele e clona na sua máquina. O comando para clonar o projeto é ```git clone "url"``` exemplo:
 
 ```git clone https://github.com/<username>/site.git```
 
-**Dando um Forking em um Repositório**
+## **Dando um Forking em um Repositório**
 
-Dar Forking em um repositório significa que você vai criar um novo projeto baseado em repositórios existentes. Em termos simples, dar forking em um repositório quer dizer que você vai copiar um repositório existente, fazer as alterações necessárias, armazenar a nova versão como um novo repositório e chamar de seu projeto.
+Dar Forking em um repositório significa que você vai criar um novo projeto baseado em repositórios existentes. Em termos simples, quer dizer que você vai copiar um repositório existente, fazer as alterações necessárias, armazenar a nova versão como um novo repositório e chamar de seu projeto.
 
-Essa é uma ótima ferramenta para desenvolvimento de projetos. Por ser um projeto totalmente novo, o diretório central não é afetado. Se o diretório master for atualizado, você também pode aplicar a atualização para seu _fork_ atual.
+Essa é uma ótima ferramenta para desenvolvimento de projetos. Por ser um projeto totalmente novo, o diretório central não é afetado. Se o diretório master for atualizado, você também pode aplicar a atualização para seu fork atual.
 
-Siga os passos abaixo para dar _fork_ em um repositório no GitHub:
+Siga os passos abaixo para dar fork em um repositório no GitHub:
 
-
-
-1. Encontre o repositório que você deseja dar _fork_.
-2. Clique no botão **_Fork_**
+1. Encontre o repositório que você deseja dar fork.
+2. Clique no botão **Fork**
 
 
-**Comando git add**
+## **Comando git add**
 
 O comando ```add``` é usado para adicionar qualquer alteração de arquivo ao INDEX do git, que é uma área especial onde os arquivos estão sendo preparados para o commit. Quando usamos ```add```, estamos dizendo que o arquivo estará adicionando ao próximo commit, quando este for realizado. 
 
 ```git add * ou git add <files>```
 
-**Fazendo commit**
+## **Fazendo commit**
 
-Um commit é um registro de quais arquivos você alterou. Essencialmente, você faz alterações no seu repo e então diz ao git para colocar esses arquivos em um commit.
+Um commit é um registro de quais arquivos você alterou. Essencialmente, você faz alterações no seu repo e então diz ao git para colocar esses arquivos em um commit. O comando utilizado para criar um commit em git é ```git commit```. 
 
-O comando utilizado para criar um commit em git é ```git commit```. Com esse comando, todos os arquivos que estiverem marcados como *Commit candidate* serão incluídos no commit.
-
-Uma coisa muito importante de qualquer commit é uma mensagem que explique o que significa aquele commit. Para isso, você pode passar a opção *-m* *"mensagem de commit".* Caso você não passe, o git vai abrir um editor de texto para que você digite a mensagem.
+Uma coisa muito importante de qualquer commit é uma mensagem que explique o que significa aquele commit. Para isso, você pode passar a opção *-m "mensagem de commit"*. Caso você não passe, o git vai abrir um editor de texto para que você digite a mensagem.
 
 Exemplo:
 
-
-
 *   ```git commit -m "commit"```: cria um commit com todos os Commit candidate e a mensagem commit
-*   ```git commit -a -m "segundo commit" ```: cria um commit com os arquivos marcados como Commit candidate e os modified e junta com a mensagem segundo commit
+*   ```git commit -a -m "segundo commit" ```: cria um commit com os arquivos marcados como Commit candidate e os modified e junta com a mensagem segundo commit.
 
 
-**Errei a mensagem do commit, como arrumo?**
+## **Errei a mensagem do commit**
 
 
-Se você já fez o commit, mas ainda não fez o push das suas modificações para o servidor. Nesse caso você usa a flag *--amend*. Fica assim: ```git commit --amend```
+Se você já fez o commit, mas ainda não fez o push das suas modificações para o servidor. Nesse caso você pode usar a flag *--amend*. Fica assim: ```git commit --amend```
 
-O ```git commit --amend``` modifica a mensagem do commit mais recente, ou seja, o último commit feito por você no projeto. Além de você mudar a mensagem do commit, você consegue adicionar arquivos que você se esqueceu ou retirar arquivos comitados por engano. O git cria um commit totalmente novo e corrigido.
-
-
-**Branch**
+O ```git commit --amend``` modifica a mensagem do commit mais recente. Além de você mudar a mensagem do commit, você consegue adicionar arquivos que você se esqueceu ou retirar arquivos comitados por engano. O git cria um commit totalmente novo e corrigido.
 
 
-_Branch_ é uma cópia do diretório. Você pode usar o _branch_ para desenvolver isoladamente.
-Trabalhar em um _branch_ não irá afetar o repositório central ou outros _branches_. Depois de finalizar o trabalho você pode combinar seu _branch_ isolado com outros _branches_ através de um _merge_. Para combinar o _branch_ isolado ao repositório central utiliza-se o _Pull Request_.
+## **Branch**
+
+Branch é uma cópia do diretório. Trabalhar em um branch não irá afetar o repositório central ou outros branches. Depois de finalizar o trabalho em um branch, você pode combinar seu branch isolado com outros branches através de um merge. Para combinar o branch isolado ao repositório central utiliza-se o Pull Request.
 
 
-Toda vez que for alterar algo em um projeto versionado com o Git, crie uma branch com o nome da tarefa que está fazendo. Para isso utilize o comando ```git checkout -b nome_da_tarefa.```
-
+Toda vez que for alterar algo em um projeto versionado com o Git, crie uma branch com o nome da tarefa que está fazendo. Para isso utilize o comando ```git checkout -b nome_da_tarefa```.
 
 
 *   Criar um novo branch ```git checkout teste```
@@ -114,40 +97,38 @@ Toda vez que for alterar algo em um projeto versionado com o Git, crie uma branc
 *   Transferindo as alterações do ‘teste’ para o *master* ```git merge teste```
 *   Deletar um branch ```git branch -d teste```
 
-**Fazendo o merge**
+## **Fazendo o merge**
 
-Com o commit feito a nova branch tem uma versão diferente da master. Podemos confirmar que estamos com diferença entre master e nossa branch rodando o seguinte comando (ainda na branch nova): ```git diff master```
+Com o commit feito o novo branch tem uma versão diferente do master. Podemos confirmar que estamos com diferença entre master e nosso branch rodando o seguinte comando (ainda no branch novo): ```git diff master```.
 
-Sabendo que, realmente, a branch nova está com diferenças da master, é preciso fazer um merge para juntaros novos commits, feitos na nova branch, com a master. Para isso você precisa voltar para a master e rodar o comando ```git merge```.
+Sabendo que, realmente, o branch nova está com diferenças do master, é preciso fazer um merge para juntaros novos commits, feitos no novo branch, com o master. Para isso você precisa voltar para o master usando o comando ```git checkout master```, e para fazer o merge o comando ```git merge nome da branch```.
 
-Para voltar para a master, usamos o comando ```git checkout master``` e para fazer o merge, o comando ```git merge nome da branch```
+## **Merge com conflitos**
 
-**Merge com conflitos**
+Caso tenha conflitos, os resolvemos "na mão" e depois salvamos as alterações com o comando **commit.**
 
-Caso tenha conflitos, os resolvemos *na mão* e depois salvamos as alterações com o comando **commit.**
+## **Pull Request**
 
-**Pull Request**
+Efetuar um Pull Request significa informar outros que você irá implementar as mudanças criadas no seu branch ao repositório master. Os colaboradores do repositório podem aceitar ou negar o Pull Request. Ao abrir um Pull Request você pode revisar e discutir seu trabalho com os colaboradores.
 
-Efetuar um _Pull Request_ significa informar outros que você irá implementar as mudanças criadas no seu _branch_ ao repositório master. Os colaboradores do repositório podem aceitar ou negar a _Pull Request_. Ao abrir um _Pull Request_ você pode revisar e discutir seu trabalho com os colaboradores.
-
-Siga os passos abaixo para criar uma _Pull Request_ no GitHub:
+Siga os passos abaixo para criar uma Pull Request no GitHub:
 
 
 
-1. Navegue até o repositório e encontre o menu _branch_.
-2. No menu _branch_, selecione o _branch_ que contém o seu trabalho.
-3. Clique em **New pull request** ao lado do menu _branch._
-4. Coloque o título e a descrição da _Pull Request._
+1. Navegue até o repositório e encontre o menu branch.
+2. No menu branch, selecione o branch que contém o seu trabalho.
+3. Clique em **New pull request** ao lado do menu branch.
+4. Coloque o título e a descrição da Pull Request.
 5. Clique no botão **Create pull request**.
 
 
-**E o GIT PULL?**
+## **E o GIT PULL?**
 
 Ainda existe um comando importante neste processo, que é o *git pull*. Ele é usado para trazer todas as modificações que estão no repositório para o seu projeto local. Isso é vital quando existem projetos mantidos por mais de uma pessoa, ou se você possui duas máquinas e precisa manter a sincronia entre elas.
 
-**Tag e Release**
+## **Tag e Release**
 
-A *tag* é um ponteiro para um commit específico. Esse ponteiro pode ser super carregado com algumas informações adicionais (identidade do criador da tag, uma descrição ...).
+A *tag* é um ponteiro para um commit específico. Esse ponteiro pode ser carregado com algumas informações adicionais (identidade do criador da tag, uma descrição ...).
 
 A *tag* é um conceito de git enquanto que um *Release* é o conceito de nível mais alto do GitHub.
 
@@ -161,7 +142,7 @@ De acordo com o post de anúncio oficial do blog do GitHub: "Releases são objet
 *   Ver detalhes da tag ```git show v0.0```
 *   Reverter a versão ```git checkout v0.0```
 
-**Comandos**
+## **Comandos**
 
 ```git init```: Server para criar um novo repositório.
 
