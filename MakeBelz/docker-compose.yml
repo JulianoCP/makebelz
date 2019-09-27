@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  node:
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_HOST=mysqldb
+      - NODE_ENV=development
+    links:
+      - mysqldb
+
+  mysqldb:
+    build: ./src/database
+    restart: always
+    ports:
+      - "3307:3306"
+
+  gradle:
+    container_name: gradleContainer
+    image: gradle:5.6.2-jdk8
+    restart: always
