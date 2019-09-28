@@ -1,5 +1,7 @@
 FROM mysql:5.7
-ENV MYSQL_ROOT_PASSWORD 123mudar
-ENV MYSQL_DATABASE makebelz
+ENV MYSQL_DATABASE=root
+ENV MYSQL_ROOT_PASSWORD=root
 
-# ADD /docker-entrypoint-initdb.d
+# COPY  /docker-entrypoint-initdb.d
+
+ADD setup.sql /docker-entrypoint-initdb.d
