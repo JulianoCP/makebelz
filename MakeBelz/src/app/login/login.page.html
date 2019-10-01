@@ -1,10 +1,14 @@
 <ion-header>
-
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      MakeBelz
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
-  <div style="margin-top: 50%; margin-left: 20%;margin-right: 20%">
+  <div>
   <form (ngSubmit)="login()" >
       <ion-item>
         <ion-input [(ngModel)]="lg.username" placeholder="Login" type="text" name="login"></ion-input>
@@ -12,7 +16,8 @@
       <ion-item>
         <ion-input [(ngModel)]="lg.password" placeholder="Senha" type="password" name="senha"></ion-input>
       </ion-item>
-      <ion-button expand="block" type="submit" routerLink="/home" shape="round">Entrar</ion-button>
+      <ion-button expand="full" type="submit" color="success" >Entrar</ion-button>
+      <ion-button expand="full" routerLink="/home" color="medium" >Cadastrar</ion-button>
     </form>
   </div>
 
