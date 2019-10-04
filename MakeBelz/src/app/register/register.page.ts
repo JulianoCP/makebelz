@@ -15,10 +15,16 @@ export class RegisterPage implements OnInit {
     password : "",
     email: "",
     end: "",
-    phone: ""
+    phone: "",
+    type: "",
   }
 
   ngOnInit() {
+  }
+
+  segmentChanged( event ) {
+    const valorSegmet = event.detail.value;
+    this.re.type = valorSegmet;
   }
 
   register()
@@ -30,5 +36,4 @@ export class RegisterPage implements OnInit {
     this.re.end = "";
     this.re.phone = "";
   }
-
 }

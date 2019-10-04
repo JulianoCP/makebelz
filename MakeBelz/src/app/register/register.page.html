@@ -7,7 +7,7 @@
 <ion-content>
  
     <div>
-      <form (ngSubmit)="register()">
+      <form (ngSubmit)="register()" padding>
       <ion-item>
           <ion-input [(ngModel)]="re.name" placeholder="Nome" type="text" name="name"></ion-input>
       </ion-item>
@@ -21,9 +21,19 @@
           <ion-input [(ngModel)]="re.end" placeholder="Endereço" type="text" name="login"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-input [(ngModel)]="re.phone" placeholder="Telefone" type="text" name="phone"></ion-input>
+          <ion-input [(ngModel)]="re.phone" placeholder="Telefone" maxlength="11" type="number" name="phone"></ion-input>
       </ion-item>
-      <ion-grid padding>
+      <ion-item>
+      <ion-segment (ionChange)="segmentChanged($event)" color="success">
+        <ion-segment-button  value="manicure">
+        <ion-label>Manicure</ion-label>
+        </ion-segment-button>
+        <ion-segment-button   value="cliente">
+        <ion-label>Cliente</ion-label>
+        </ion-segment-button>
+        </ion-segment>
+        </ion-item>
+      <ion-grid>
         <ion-row class="full-width">
           <ion-col size="6">
             <ion-button expand="full"  color="danger" routerLink="/login">
@@ -40,6 +50,5 @@
         </ion-row>
       </ion-grid>
     </form>
-
   </div>
 </ion-content>
