@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+    <div>
+      <form (ngSubmit)="register()">
+      <ion-item>
+          <ion-input [(ngModel)]="re.name" placeholder="Nome" type="text" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input [(ngModel)]="re.password" placeholder="Senha" type="password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input [(ngModel)]="re.email" placeholder="Email" type="text" name="email"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input [(ngModel)]="re.end" placeholder="Endereço" type="text" name="login"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input [(ngModel)]="re.phone" placeholder="Telefone" type="text" name="phone"></ion-input>
+      </ion-item>
+      <ion-grid padding>
+        <ion-row class="full-width">
+          <ion-col size="6">
+            <ion-button expand="full"  color="danger" routerLink="/login">
+            <ion-icon slot="start" name="close" ></ion-icon>
+              Cancelar
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+              <ion-button expand="full" type="submit" color="success">
+                  <ion-icon slot="start" name="add"></ion-icon>
+                Cadastrar
+              </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+  </div>
+</ion-content>

@@ -14,9 +14,9 @@ export class LoginPage implements OnInit {
       password : ""
   }
 
-
   ngOnInit() {
   }
+  
   login()
   {
     console.log(this.lg);
