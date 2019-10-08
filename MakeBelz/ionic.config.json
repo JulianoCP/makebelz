@@ -1,7 +1,0 @@
-{
-  "name": "MakeBelz",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
