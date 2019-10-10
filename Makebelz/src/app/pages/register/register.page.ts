@@ -21,7 +21,10 @@ export class RegisterPage implements OnInit {
 
   private re = {
     name: '',
-    end: '',
+    end_bairro: '',
+    end_cidade: '',
+    end_numero: '',
+    end_rua: '',
     phone: '',
     type: ''
   };
