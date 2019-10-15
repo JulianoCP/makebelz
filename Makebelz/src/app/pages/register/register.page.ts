@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/user';
+import { Login } from 'src/app/interfaces/login';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterPage implements OnInit {
 
-  public userRegister: User = {};
+  public loginRegister: Login = {};
   private loading: any;
 
   constructor(
@@ -37,7 +37,7 @@ export class RegisterPage implements OnInit {
   async register() {
     await this.presentLoading();
     try {
-      await this.authService.register(this.userRegister);
+      await this.authService.register(this.loginRegister);
     } catch (error) {
       await this.presentToast(this.translate(error.code));
     } finally {

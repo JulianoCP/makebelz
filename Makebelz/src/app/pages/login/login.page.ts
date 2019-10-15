@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/user';
+import { Login } from 'src/app/interfaces/login';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginPage implements OnInit {
 
-  public userLogin: User = {};
+  public userLogin: Login = {};
   private loading: any;
 
   constructor(
@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
 
 
   async presentToast(message: string) {
-    // como a propriedade tem o mesmo nome do qual ta no parâmetro, não tem problema de deixar só o nome (sintaxi curta)
+    // como a propriedade tem o mesmo nome do qual ta no parâmetro, não tem problema de deixar só o nome (sintaxe curta)
     const toast = await this.toastCtrl.create({ message, duration: 2000, color: 'danger', position: 'bottom'});
     toast.present();
   }
