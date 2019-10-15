@@ -8,7 +8,7 @@
  
   <div>
     <!-- <form (ngSubmit)="register()" class="ion-padding"> -->
-    <form  class="ion-padding">
+    <form padding>
       <ion-item>
         <ion-input [(ngModel)]="re.name" placeholder="Nome" type="text" name="name"></ion-input>
       </ion-item>
@@ -22,7 +22,19 @@
       </ion-item>
       
       <ion-item>
-        <ion-input [(ngModel)]="re.end" placeholder="Endereço" type="text" name="login"></ion-input>
+        <ion-input [(ngModel)]="re.end_cidade" placeholder="Cidade" type="text" name="end_cidade"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="re.end_bairro" placeholder="Bairro" type="text" name="end_bairro" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-input [(ngModel)]="re.end_rua" placeholder="Rua" type="text" name="end_rua" ></ion-input>
+        </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="re.end_numero" placeholder="Numero da casa" type="number" name="end_numero"></ion-input>
       </ion-item>
       
       <ion-item>
@@ -32,14 +44,18 @@
       <ion-item>
         <ion-segment (ionChange)="segmentChanged($event)" color="success">
 
-          <ion-segment-button  value="manicure">
-            <ion-label>Manicure</ion-label>
-          </ion-segment-button>
-
-          <ion-segment-button   value="cliente">
-            <ion-label>Cliente</ion-label>
-          </ion-segment-button>
-
+          <ion-col size="6">
+              <ion-segment-button value="manicure">
+                  <ion-label>Manicure</ion-label>
+              </ion-segment-button>
+          </ion-col>
+          
+          <ion-col size="6">
+              <ion-segment-button   value="cliente">
+                  <ion-label>Cliente</ion-label>
+              </ion-segment-button>
+          </ion-col>
+          
         </ion-segment>
       </ion-item>
 
@@ -54,14 +70,16 @@
 
           </ion-col>
           <ion-col size="6">
-              <ion-button expand="full"  color="success" (click)="register()">
+              <ion-button expand="full"  color="success" (click)="CreateRecord()">
                 <ion-icon slot="start" name="add"></ion-icon>
                 Cadastrar
               </ion-button>
           </ion-col>
-          
         </ion-row>
       </ion-grid>
     </form>
   </div>
+
+
+
 </ion-content>

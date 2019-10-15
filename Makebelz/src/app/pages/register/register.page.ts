@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/interfaces/login';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { CrudService } from '../../services/crud.service';
+
+import 'firebase/firestore';
 
 @Component({
   selector: 'app-register',
@@ -16,15 +19,36 @@ export class RegisterPage implements OnInit {
   constructor(
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    private authService: AuthService
+    private authService: AuthService,
+    private crudService: CrudService
   ) {}
 
   private re = {
     name: '',
-    end: '',
+    end_bairro: '',
+    end_cidade: '',
+    end_numero: '',
+    end_rua: '',
     phone: '',
     type: ''
   };
+
+  CreateRecord() {
+    let record = {};
+    record['Name'] = this.re.name;
+    record['Bairro'] = this.re.end_bairro;
+    record['Cidade'] = this.re.end_cidade;
+    record['Numero'] = this.re.end_rua;
+    record['Rua'] = this.re.end_numero;
+    record['Phone'] = this.re.phone;
+    record['Type'] = this.re.type;
+    this.crudService.create_NewStudent(record).then(resp => {
+    console.log(resp);
+    })
+      .catch(error => {
+      console.log(error);
+    });
+  }
 
   ngOnInit() {}
 
@@ -55,7 +79,7 @@ export class RegisterPage implements OnInit {
 
   async presentToast(message: string) {
     // como a propriedade tem o mesmo nome do qual ta no parâmetro, não tem problema de deixar só o nome (sintaxi curta)
-    const toast = await this.toastCtrl.create({ message, duration: 2000, color: 'danger', position: 'bottom'});
+    const toast = await this.toastCtrl.create({ message, duration: 1000, color: 'danger', position: 'bottom'});
     toast.present();
   }
 
