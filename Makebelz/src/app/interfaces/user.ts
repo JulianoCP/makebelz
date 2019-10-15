@@ -4,6 +4,7 @@ export interface User {
   city?: string;
   number?: string;
   district?: string; // bairro
+  streetName?: string; // rua
   phone?: string;
 
   createAt?: number;
