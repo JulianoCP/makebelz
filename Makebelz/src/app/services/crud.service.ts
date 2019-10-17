@@ -12,8 +12,8 @@ export class CrudService {
     private firestore: AngularFirestore
   ) { }
  
-  create_NewStudent(record) {
-    return this.firestore.collection('cliente').add(record);
+  create_NewStudent(record,id) {
+    return this.firestore.collection('cliente').doc(id).set(record);
   }
  
   read_Students() {

@@ -33,23 +33,6 @@ export class RegisterPage implements OnInit {
     type: ''
   };
 
-  CreateRecord() {
-    let record = {};
-    record['Name'] = this.re.name;
-    record['Bairro'] = this.re.end_bairro;
-    record['Cidade'] = this.re.end_cidade;
-    record['Numero'] = this.re.end_rua;
-    record['Rua'] = this.re.end_numero;
-    record['Phone'] = this.re.phone;
-    record['Type'] = this.re.type;
-    this.crudService.create_NewStudent(record).then(resp => {
-    console.log(resp);
-    })
-      .catch(error => {
-      console.log(error);
-    });
-  }
-
   ngOnInit() {}
 
   segmentChanged(event) {
@@ -61,7 +44,25 @@ export class RegisterPage implements OnInit {
   async register() {
     await this.presentLoading();
     try {
-      await this.authService.register(this.loginRegister);
+      
+      const a = await this.authService.register(this.loginRegister);
+      var id = a.user.uid
+      let usuario = {};
+
+      usuario['Name'] = this.re.name;
+      usuario['Bairro'] = this.re.end_bairro;
+      usuario['Cidade'] = this.re.end_cidade;
+      usuario['Numero'] = this.re.end_rua;
+      usuario['Rua'] = this.re.end_numero;
+      usuario['Phone'] = this.re.phone;
+      usuario['Type'] = this.re.type;
+
+
+      this.crudService.create_NewStudent(usuario,id).then(resp => {
+      console.log(usuario);
+      console.log(id);
+      })
+
     } catch (error) {
       await this.presentToast(this.translate(error.code));
     } finally {
@@ -79,7 +80,7 @@ export class RegisterPage implements OnInit {
 
   async presentToast(message: string) {
     // como a propriedade tem o mesmo nome do qual ta no parâmetro, não tem problema de deixar só o nome (sintaxi curta)
-    const toast = await this.toastCtrl.create({ message, duration: 1000, color: 'danger', position: 'bottom'});
+    const toast = await this.toastCtrl.create({ message, duration: 500, color: 'danger', position: 'bottom'});
     toast.present();
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import * as firebase from 'firebase/app';
 import { LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
@@ -31,6 +32,10 @@ export class HomePage implements OnInit {
     }
   }
 
+  currentUser()
+  {
+    console.log(firebase.auth().currentUser);
+  }
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({ message: 'Por favor, aguarde...' });
