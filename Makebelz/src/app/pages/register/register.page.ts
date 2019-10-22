@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/interfaces/login';
+import * as firebase from 'firebase/app';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { CrudService } from '../../services/crud.service';
@@ -62,6 +63,8 @@ export class RegisterPage implements OnInit {
       console.log(usuario);
       console.log(id);
       })
+
+      firebase.auth().currentUser.sendEmailVerification();
 
     } catch (error) {
       await this.presentToast(this.translate(error.code));
