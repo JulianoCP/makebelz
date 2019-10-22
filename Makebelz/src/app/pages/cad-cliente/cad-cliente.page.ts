@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from 'src/app/interfaces/login';
 import * as firebase from 'firebase/app';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
 import { CrudService } from '../../services/crud.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cad-cliente',
@@ -12,13 +11,10 @@ import { CrudService } from '../../services/crud.service';
 })
 export class CadClientePage implements OnInit {
 
-  private loading: any;
-
   constructor(
-    private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController,
-    private authService: AuthService,
-    private crudService: CrudService
+    private crudService: CrudService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute
   ) {}
 
   private re = {
@@ -32,7 +28,7 @@ export class CadClientePage implements OnInit {
 
   ngOnInit() {}
 
-  async register(id) {
+  async register() {
     try {
       
       let usuario = {};
@@ -44,15 +40,16 @@ export class CadClientePage implements OnInit {
       usuario['Rua'] = this.re.end_numero;
       usuario['Phone'] = this.re.phone;
 
-      this.crudService.create_NewStudent(usuario,id).then(resp => {
+      this.crudService.create_NewStudent(usuario,firebase.auth().currentUser.uid).then(resp => {
       console.log(usuario);
       })
-
+      this.router.navigate(['../home'],{relativeTo:this.activatedRoute})
+      
     } catch (error) {
       console.log("DEU RUIM");
-    } finally {
-      this.loading.dismiss();
-    }
+      console.log(error);
+    } 
+
   }
 
 }

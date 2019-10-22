@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
+import { RouterGuard } from './guards/router.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -9,7 +10,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule', canActivate: [AuthGuard] },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule',canActivate: [LoginGuard]},
   { path: 'router', loadChildren: './pages/router/router.module#RouterPageModule' },
-  { path: 'cad-cliente', loadChildren: './pages/cad-cliente/cad-cliente.module#CadClientePageModule' },
+  { path: 'cad-cliente', loadChildren: './pages/cad-cliente/cad-cliente.module#CadClientePageModule'},
   { path: 'cad-manicure', loadChildren: './pages/cad-manicure/cad-manicure.module#CadManicurePageModule' },
 ];
 
