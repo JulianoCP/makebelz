@@ -3,9 +3,8 @@ import { Login } from 'src/app/interfaces/login';
 import * as firebase from 'firebase/app';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
-import { CrudService } from '../../services/crud.service';
-
 import 'firebase/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,26 +20,9 @@ export class RegisterPage implements OnInit {
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private authService: AuthService,
-    private crudService: CrudService
   ) {}
 
-  private re = {
-    name: '',
-    end_bairro: '',
-    end_cidade: '',
-    end_numero: '',
-    end_rua: '',
-    phone: '',
-    type: ''
-  };
-
   ngOnInit() {}
-
-  segmentChanged(event) {
-    const valorSegmet = event.detail.value;
-    this.re.type = valorSegmet;
-  }
-
 
   async register() {
     await this.presentLoading();
@@ -48,23 +30,9 @@ export class RegisterPage implements OnInit {
       
       const a = await this.authService.register(this.loginRegister);
       var id = a.user.uid
-      let usuario = {};
-
-      usuario['Name'] = this.re.name;
-      usuario['Bairro'] = this.re.end_bairro;
-      usuario['Cidade'] = this.re.end_cidade;
-      usuario['Numero'] = this.re.end_rua;
-      usuario['Rua'] = this.re.end_numero;
-      usuario['Phone'] = this.re.phone;
-      usuario['Type'] = this.re.type;
 
 
-      this.crudService.create_NewStudent(usuario,id).then(resp => {
-      console.log(usuario);
-      console.log(id);
-      })
-
-      firebase.auth().currentUser.sendEmailVerification();
+    firebase.auth().currentUser.sendEmailVerification();
 
     } catch (error) {
       await this.presentToast(this.translate(error.code));
