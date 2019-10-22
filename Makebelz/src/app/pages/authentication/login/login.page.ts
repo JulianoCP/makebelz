@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/interfaces/login';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/pages/authentication/auth.service';
 
 @Component({
   selector: 'app-login',
