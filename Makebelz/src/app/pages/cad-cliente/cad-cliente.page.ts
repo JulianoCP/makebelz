@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
-import { LoadingController, ToastController } from '@ionic/angular';
 import { CrudService } from '../../services/crud.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -24,6 +23,7 @@ export class CadClientePage implements OnInit {
     end_numero: '',
     end_rua: '',
     phone: '',
+    type:'Cliente',
   };
 
   ngOnInit() {}
@@ -39,6 +39,7 @@ export class CadClientePage implements OnInit {
       usuario['Numero'] = this.re.end_rua;
       usuario['Rua'] = this.re.end_numero;
       usuario['Phone'] = this.re.phone;
+      usuario['Type'] = this.re.type;
 
       this.crudService.create_NewStudent(usuario,firebase.auth().currentUser.uid).then(resp => {
       console.log(usuario);
