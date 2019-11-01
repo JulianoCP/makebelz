@@ -23,7 +23,6 @@ export class CadClientePage implements OnInit {
     end_numero: '',
     end_rua: '',
     phone: '',
-    type:'Cliente',
   };
 
   ngOnInit() {}
@@ -39,9 +38,8 @@ export class CadClientePage implements OnInit {
       usuario['Numero'] = this.re.end_rua;
       usuario['Rua'] = this.re.end_numero;
       usuario['Phone'] = this.re.phone;
-      usuario['Type'] = this.re.type;
 
-      this.crudService.create_NewStudent(usuario,firebase.auth().currentUser.uid).then(resp => {
+      this.crudService.create_Usuario(usuario,firebase.auth().currentUser.uid,'Cliente').then(resp => {
       console.log(usuario);
       })
       this.router.navigate(['../home'],{relativeTo:this.activatedRoute})

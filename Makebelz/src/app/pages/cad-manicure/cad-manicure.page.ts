@@ -25,7 +25,6 @@ export class CadManicurePage implements OnInit {
     end_numero: '',
     end_rua: '',
     phone: '',
-    type: 'Manicure',
     casa: false,
     salao: false,
   };
@@ -49,27 +48,19 @@ export class CadManicurePage implements OnInit {
       
       let usuario = {};
 
+      usuario['Name'] = this.re.name;
+      usuario['Phone'] = this.re.phone;
+      usuario['Casa'] = this.re.casa;
+      usuario['Salao'] = this.re.salao;
+
       if(this.isSalao == true){
-        usuario['Name'] = this.re.name;
         usuario['Bairro'] = this.re.end_bairro;
         usuario['Cidade'] = this.re.end_cidade;
         usuario['Numero'] = this.re.end_rua;
         usuario['Rua'] = this.re.end_numero;
-        usuario['Phone'] = this.re.phone;
-        usuario['Type'] = this.re.type;
-        usuario['Casa'] = this.re.casa;
-        usuario['Salao'] = this.re.salao;
       }
-      else{
-        usuario['Name'] = this.re.name;
-        usuario['Phone'] = this.re.phone;
-        usuario['Type'] = this.re.type;
-        usuario['Casa'] = this.re.casa;
-        usuario['Salao'] = this.re.salao;
-      }
-      
 
-      this.crudService.create_NewStudent(usuario,firebase.auth().currentUser.uid).then(resp => {
+      this.crudService.create_Usuario(usuario,firebase.auth().currentUser.uid,'Manicure').then(resp => {
       console.log(usuario);
       })
       this.router.navigate(['../home'],{relativeTo:this.activatedRoute})
