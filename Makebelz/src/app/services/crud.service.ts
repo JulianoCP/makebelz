@@ -12,7 +12,7 @@ export class CrudService {
     private firestore: AngularFirestore
   ) { }
 
-  create_NewStudent(record, id) {
+  create_NewStudent(record,id) {
     return this.firestore.collection('cliente').doc(id).set(record);
   }
 

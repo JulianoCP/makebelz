@@ -10,55 +10,13 @@
     <!-- <form (ngSubmit)="register()" class="ion-padding"> -->
     <form class="ion-padding">
       <ion-item>
-        <ion-input [(ngModel)]="re.name" placeholder="Nome" type="text" name="name"></ion-input>
-      </ion-item>
-     
-      <ion-item>
         <ion-input [(ngModel)]="loginRegister.email" placeholder="Email" type="text" name="email"></ion-input>
       </ion-item>
       
       <ion-item>
         <ion-input [(ngModel)]="loginRegister.password" placeholder="Senha" type="password" name="password"></ion-input>
       </ion-item>
-      
-      <ion-item>
-        <ion-input [(ngModel)]="re.end_cidade" placeholder="Cidade" type="text" name="end_cidade"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input [(ngModel)]="re.end_bairro" placeholder="Bairro" type="text" name="end_bairro" ></ion-input>
-      </ion-item>
-
-      <ion-item>
-          <ion-input [(ngModel)]="re.end_rua" placeholder="Rua" type="text" name="end_rua" ></ion-input>
-        </ion-item>
-
-      <ion-item>
-        <ion-input [(ngModel)]="re.end_numero" placeholder="Numero da casa" type="number" name="end_numero"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-input [(ngModel)]="re.phone" placeholder="Telefone" maxlength="11" type="number" name="phone"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-segment (ionChange)="segmentChanged($event)" color="success">
-
-          <ion-col size="6">
-              <ion-segment-button value="manicure">
-                  <ion-label>Manicure</ion-label>
-              </ion-segment-button>
-          </ion-col>
-          
-          <ion-col size="6">
-              <ion-segment-button   value="cliente">
-                  <ion-label>Cliente</ion-label>
-              </ion-segment-button>
-          </ion-col>
-          
-        </ion-segment>
-      </ion-item>
-
+  
       <ion-grid>
         <ion-row class="full-width">
 
@@ -79,7 +37,5 @@
       </ion-grid>
     </form>
   </div>
-
-
 
 </ion-content>
