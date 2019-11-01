@@ -7,6 +7,6 @@ export interface User {
   streetName?: string; // rua
   phone?: string;
 
-  createAt?: number;
-  userId?: string;
+  createAt?: number; // data de criação
+  userId?: string;   // responsável pelo perfil
 }
