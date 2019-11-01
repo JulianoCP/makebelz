@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
- 
 import { AngularFirestore } from '@angular/fire/firestore';
  
 @Injectable({
@@ -12,19 +11,19 @@ export class CrudService {
     private firestore: AngularFirestore
   ) { }
  
-  create_NewStudent(record,id) {
-    return this.firestore.collection('cliente').doc(id).set(record);
+  create_Usuario(record,id,collection) {
+    return this.firestore.collection(collection).doc(id).set(record);
   }
  
-  read_Students() {
-    return this.firestore.collection('cliente').snapshotChanges();
+  read_Usuario(collection) {
+    return this.firestore.collection(collection).snapshotChanges();
   }
  
-  update_Student(recordID,record){
-    this.firestore.doc('cliente/' + recordID).update(record);
+  update_Usuario(recordID,record,collection){
+    this.firestore.doc(collection+ '/' + recordID).update(record);
   }
  
-  delete_Student(record_id) {
-    this.firestore.doc('cliente/' + record_id).delete();
+  delete_Usuario(record_id,collection) {
+    this.firestore.doc(collection + '/' + record_id).delete();
   }
 }
