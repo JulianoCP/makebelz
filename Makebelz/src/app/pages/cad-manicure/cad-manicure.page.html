@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title class="ion-text-center" color="dark">Manicure</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div>
+        <form padding>
+          <ion-item>
+            <ion-input [(ngModel)]="re.name" placeholder="Nome" type="text" name="name"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-input [(ngModel)]="re.phone" placeholder="Telefone" maxlength="11" type="number" name="phone"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label>Atendo na  casa do cliente</ion-label>
+            <ion-checkbox (click)="toogleCasa()" color="secondary"></ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Atendo no Salão</ion-label>
+            <ion-checkbox (click)="toogleSalao()" color="secondary"></ion-checkbox>
+          </ion-item>
+
+          <div  *ngIf="isSalao">
+              <ion-item>
+                <ion-input [(ngModel)]="re.end_cidade" placeholder="Cidade" type="text" name="cidade"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input [(ngModel)]="re.end_bairro" placeholder="Bairro" type="text" name="bairro"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-input [(ngModel)]="re.end_rua" placeholder="Rua" type="text" name="rua"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input [(ngModel)]="re.end_numero" placeholder="Numero da casa" type="number" name="numero"></ion-input>
+                </ion-item>
+           </div>
+
+          <ion-grid>
+            <ion-row class="full-width">
+    
+              <ion-col size="6">
+                <ion-button expand="full"  color="danger" routerLink="/login" routerDirection="back">
+                <ion-icon slot="start" name="close" ></ion-icon>
+                  Cancelar
+                </ion-button>
+    
+              </ion-col>
+              <ion-col size="6">
+                  <ion-button expand="full"  color="success" (click)="register()" >
+                    <ion-icon slot="start" name="add"></ion-icon>
+                    Cadastrar
+                  </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </div>
+</ion-content>
