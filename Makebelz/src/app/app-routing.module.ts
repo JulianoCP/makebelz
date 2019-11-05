@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'router', loadChildren: './pages/router/router.module#RouterPageModule' },
   { path: 'cad-cliente', loadChildren: './pages/cad-cliente/cad-cliente.module#CadClientePageModule'},
   { path: 'cad-manicure', loadChildren: './pages/cad-manicure/cad-manicure.module#CadManicurePageModule' },
+  { path: 'contacts', loadChildren: './contacts/contacts.module#ContactsPageModule' },
 ];
 
 @NgModule({
