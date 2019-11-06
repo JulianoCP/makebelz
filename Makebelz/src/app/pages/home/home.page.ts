@@ -21,6 +21,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {}
 
+
   async logout() {
     try {
       await this.authService.logout();

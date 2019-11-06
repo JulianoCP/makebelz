@@ -12,4 +12,9 @@ export class ContactsPage implements OnInit {
   ngOnInit() {
   }
 
+  cliente()
+  {
+    console.log("CLIENTE SEILA");
+  }
+
 }
