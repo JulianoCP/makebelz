@@ -1,16 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu>
+  <ion-list >
+    <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="settings" slot="start"></ion-icon>
+      <ion-label (click)="logout()">Configurações</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="log-out" slot="start"></ion-icon>
+      <ion-label (click)="logout()">Desconectar</ion-label>
+    </ion-item>
+</ion-list>
+</ion-menu>
+  <div class="ion-page" main>
+    <ion-header no-border>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="margin-left: 26%;" color="dark">Home</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
 <ion-content>
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
 
-  <ion-button (click)="currentUser()">
-    Click me
-  </ion-button>
+          <ion-tab-button tab="contacts">
+            <ion-icon name="contacts"></ion-icon>
+            <ion-label>Contatos</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="calendar">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>Agenda</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="map">
+            <ion-icon name="map"></ion-icon>
+            <ion-label>Mapa</ion-label>
+          </ion-tab-button>
 
-  <ion-button (click)="logout()">
-    Sair
-  </ion-button>
+        </ion-tab-bar>
+      </ion-tabs>
 </ion-content>
