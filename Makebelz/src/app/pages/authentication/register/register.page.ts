@@ -15,6 +15,7 @@ export class RegisterPage implements OnInit {
 
   public loginRegister: Login = {};
   private loading: any;
+  public tipo: boolean;
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -26,14 +27,15 @@ export class RegisterPage implements OnInit {
 
   async register() {
     await this.presentLoading();
-    try {
 
-      if (this.loginRegister.password === this.loginRegister.confirmPassword) {
-        const a = await this.authService.register(this.loginRegister);
-        const id = a.user.uid;
-      } else {
-        this.presentToast('Senha incompatível'); // resolver a questão de print
+
+    try {
+      if (this.loginRegister.password !== this.loginRegister.confirmPassword) {
+        this.presentToast('Senha incompatível');
+        return;
       }
+      const a = await this.authService.register(this.loginRegister);
+      const id = a.user.uid;
       firebase.auth().currentUser.sendEmailVerification();
 
     } catch (error) {
@@ -53,7 +55,7 @@ export class RegisterPage implements OnInit {
 
   async presentToast(message: string) {
     // como a propriedade tem o mesmo nome do qual ta no parâmetro, não tem problema de deixar só o nome (sintaxi curta)
-    const toast = await this.toastCtrl.create({ message, duration: 500, color: 'danger', position: 'bottom'});
+    const toast = await this.toastCtrl.create({ message, duration: 3000, color: 'danger', position: 'bottom'});
     toast.present();
   }
 
@@ -75,7 +77,7 @@ export class RegisterPage implements OnInit {
         break;
 
       case 'auth/weak-password':
-        message = 'Senha fraca, insira uma senha com no mínimo 6 caractéres';
+        message = 'Senha fraca, insira uma senha com no mínimo 6 dígitos';
         break;
 
       // default:
@@ -84,7 +86,11 @@ export class RegisterPage implements OnInit {
     return message;
   }
 
-  cancel(){
+  cancel() {
 
+  }
+
+  exibirSenha() {
+    this.tipo = !this.tipo;
   }
 }

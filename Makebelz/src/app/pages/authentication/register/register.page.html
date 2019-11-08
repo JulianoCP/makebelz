@@ -14,17 +14,23 @@
       <ion-col size="12">
         <ion-label ></ion-label>
         <ion-item>
-          <ion-input [(ngModel)]="loginRegister.email" placeholder="Email" type="text" name="email"></ion-input>
+          <ion-input [(ngModel)]="loginRegister.email" placeholder="E-mail" type="email" name="email"></ion-input>
         </ion-item>
         <br>
         <br>
         <ion-item>
-          <ion-input [(ngModel)]="loginRegister.password" placeholder="Senha" type="password" name="password"></ion-input>
+          <ion-input [(ngModel)]="loginRegister.password" placeholder="Senha" [type]="tipo ? 'text': 'password'" name="password" ></ion-input>
+          <ion-button (click)="exibirSenha()" fill="clear">
+            <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
         </ion-item>
         <br>
         <br>
         <ion-item>
-          <ion-input [(ngModel)]="loginRegister.confirmPassword" placeholder="Confirmar Senha" type="password" name="password"></ion-input>
+          <ion-input [(ngModel)]="loginRegister.confirmPassword" placeholder="Confirmar Senha" [type]="tipo ? 'text': 'password'" name="password"></ion-input>
+          <ion-button (click)="exibirSenha()" fill="clear">
+            <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
         </ion-item>
     
       </ion-col>
