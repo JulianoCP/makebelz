@@ -28,8 +28,12 @@ export class RegisterPage implements OnInit {
     await this.presentLoading();
     try {
 
-      const a = await this.authService.register(this.loginRegister);
-      const id = a.user.uid;
+      if (this.loginRegister.password === this.loginRegister.confirmPassword) {
+        const a = await this.authService.register(this.loginRegister);
+        const id = a.user.uid;
+      } else {
+        this.presentToast('Senha incompatível'); // resolver a questão de print
+      }
       firebase.auth().currentUser.sendEmailVerification();
 
     } catch (error) {
@@ -55,6 +59,7 @@ export class RegisterPage implements OnInit {
 
 
   translate(code: string) {
+    console.log(code);
     let message: string;
     switch (code) {
       case 'auth/email-already-in-use':
@@ -73,9 +78,13 @@ export class RegisterPage implements OnInit {
         message = 'Senha fraca, insira uma senha com no mínimo 6 caractéres';
         break;
 
-      default:
-        console.error(code);
+      // default:
+        // console.error(code);
     }
     return message;
+  }
+
+  cancel(){
+
   }
 }

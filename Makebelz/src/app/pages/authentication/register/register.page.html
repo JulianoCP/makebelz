@@ -1,41 +1,85 @@
 <ion-header no-border>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">Cadastro</ion-title>
+  <ion-toolbar class="ion-text-center">
+      <img height="70%" width="70%" src="../../../../assets/img/logo.png"/>
+
   </ion-toolbar>
+      <!-- <ion-img [src]="../../../../assets/img/logo.png"></ion-img> -->
+     
 </ion-header>
 
 <ion-content>
  
-  <div>
-    <!-- <form (ngSubmit)="register()" class="ion-padding"> -->
-    <form class="ion-padding">
-      <ion-item>
-        <ion-input [(ngModel)]="loginRegister.email" placeholder="Email" type="text" name="email"></ion-input>
-      </ion-item>
-      
-      <ion-item>
-        <ion-input [(ngModel)]="loginRegister.password" placeholder="Senha" type="password" name="password"></ion-input>
-      </ion-item>
+  <ion-grid class="login-grid">
+    <ion-row align-items-center text-center>
+      <ion-col size="12">
+        <ion-label ></ion-label>
+        <ion-item>
+          <ion-input [(ngModel)]="loginRegister.email" placeholder="Email" type="text" name="email"></ion-input>
+        </ion-item>
+        <br>
+        <br>
+        <ion-item>
+          <ion-input [(ngModel)]="loginRegister.password" placeholder="Senha" type="password" name="password"></ion-input>
+        </ion-item>
+        <br>
+        <br>
+        <ion-item>
+          <ion-input [(ngModel)]="loginRegister.confirmPassword" placeholder="Confirmar Senha" type="password" name="password"></ion-input>
+        </ion-item>
+    
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   
-      <ion-grid>
-        <ion-row class="full-width">
 
-          <ion-col size="6">
-            <ion-button expand="full"  color="danger" routerLink="/login" routerDirection="back">
-            <ion-icon slot="start" name="close" ></ion-icon>
-              Cancelar
+  <!-- <form (ngSubmit)="register()" class="ion-padding"> -->
+   
+    <!-- <ion-grid>
+      <ion-row class="full-width">
+
+        <ion-col size="6">
+          <ion-button expand="full"  color="danger" routerLink="/login" routerDirection="back">
+          <ion-icon slot="start" name="close" ></ion-icon>
+            Cancelar
+          </ion-button>
+
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="full"  color="success" (click)="register()">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Cadastrar
             </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+  
 
-          </ion-col>
-          <ion-col size="6">
-              <ion-button expand="full"  color="success" (click)="register()">
-                <ion-icon slot="start" name="add"></ion-icon>
-                Cadastrar
-              </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </form>
-  </div>
 
 </ion-content>
+
+
+<footer no-border>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="6">
+        <ion-button
+          expand="block"
+          color="danger"
+          (click)="cancel()"
+        >
+          <ion-icon slot="start" name="close"></ion-icon>
+          Cancelar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" (click)="register()">
+          <ion-icon slot="end"name="arrow-round-forward"></ion-icon>
+          Continuar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+</footer>
