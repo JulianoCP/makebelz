@@ -6,58 +6,54 @@
 
 <ion-content>
  
-  <ion-grid class="login-grid">
+  <ion-grid>
     <ion-row class="ion-align-items-center ion-text-center">
       <ion-col size="12">
         <ion-label ></ion-label>
         <ion-item>
-          <ion-input [(ngModel)]="loginRegister.email" placeholder="E-mail" type="email" name="email"></ion-input>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input [(ngModel)]="loginRegister.email" type="email" name="email"></ion-input>
         </ion-item>
-        <br>
-        <br>
-        <ion-item>
-          <ion-input [(ngModel)]="loginRegister.password" placeholder="Senha" [type]="tipo ? 'text': 'password'" name="password" ></ion-input>
-          <ion-button (click)="exibirSenha()" fill="clear">
-            <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
-          </ion-button>
-        </ion-item>
-        <br>
-        <br>
-        <ion-item>
-          <ion-input [(ngModel)]="loginRegister.confirmPassword" placeholder="Confirmar Senha" [type]="tipo ? 'text': 'password'" name="password"></ion-input>
-          <ion-button (click)="exibirSenha()" fill="clear">
-            <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
-          </ion-button>
-        </ion-item>
-    
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  
 
-  <!-- <form (ngSubmit)="register()" class="ion-padding"> -->
-   
-    <!-- <ion-grid>
-      <ion-row class="full-width">
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-text-center">
+      <ion-col size="10">
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input [(ngModel)]="loginRegister.password"  [type]="tipo ? 'text': 'password'" name="password" ></ion-input>
+        </ion-item>
+      </ion-col>
 
-        <ion-col size="6">
-          <ion-button expand="full"  color="danger" routerLink="/login" routerDirection="back">
-          <ion-icon slot="start" name="close" ></ion-icon>
-            Cancelar
-          </ion-button>
+      <ion-col size="2">
+        <ion-button (click)="exibirSenha()" fill="clear">
+          <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-        </ion-col>
-        <ion-col size="6">
-            <ion-button expand="full"  color="success" (click)="register()">
-              <ion-icon slot="start" name="add"></ion-icon>
-              Cadastrar
-            </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-  
 
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-text-center">
+      <ion-col size="10">
+        <ion-item>
+          <ion-label position="floating">Confirmar senha</ion-label>
+          <ion-input [(ngModel)]="loginRegister.confirmPassword" [type]="tipo ? 'text': 'password'" name="password"></ion-input>
+        </ion-item>
+      </ion-col>
+
+
+      <ion-col size="2">
+        <ion-button (click)="exibirSenha()" fill="clear">
+          <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
 
