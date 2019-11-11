@@ -6,11 +6,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
+import { LoginGuard } from 'src/app/guards/login/login.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginPage
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('../register/register.module').then(m => m.RegisterPageModule)
   }
 ];
 

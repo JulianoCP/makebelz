@@ -60,7 +60,7 @@ export class CadManicurePage implements OnInit {
         usuario['Rua'] = this.re.end_numero;
       }
 
-      this.crudService.create_Usuario(usuario,firebase.auth().currentUser.uid,'Manicure').then(resp => {
+      this.crudService.create_Usuario(usuario, firebase.auth().currentUser.uid,'Manicure').then(resp => {
       console.log(usuario);
       })
       this.router.navigate(['../home'],{relativeTo:this.activatedRoute})

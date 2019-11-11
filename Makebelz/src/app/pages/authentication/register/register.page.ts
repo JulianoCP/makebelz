@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/interfaces/login';
 import * as firebase from 'firebase/app';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/pages/authentication/auth.service';
-
-import 'firebase/firestore';
+import { RegisterService } from './register.service';
+import { FirebaseDatabase, FirebaseApp } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ import 'firebase/firestore';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage implements OnInit {
+
 
   public loginRegister: Login = {};
   private loading: any;
@@ -21,25 +23,49 @@ export class RegisterPage implements OnInit {
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private authService: AuthService,
+    public navCtrl: NavController,
+    public registerService: RegisterService,
   ) {}
+
+
 
   ngOnInit() {}
 
+
   async register() {
+
     await this.presentLoading();
 
-
     try {
+
+      // const data = await this.registerService.verifyEmail(this.loginRegister.email);
+      // const format = data[`format_valid`];
+      // const smtpCheck = data[`smtp_check`];
+
+      // if (!format) {
+      //   this.presentToast('Formato de e-mail inválido!');
+      //   return false;
+      // }
+
+
+      // if (!smtpCheck) {
+      //   this.presentToast('E-mail inválido!');
+      //   return false;
+      // }
+
+
       if (this.loginRegister.password !== this.loginRegister.confirmPassword) {
         this.presentToast('Senha incompatível');
-        return;
+        return false;
       }
-      const a = await this.authService.register(this.loginRegister);
-      const id = a.user.uid;
-      firebase.auth().currentUser.sendEmailVerification();
 
-    } catch (error) {
-      await this.presentToast(this.translate(error.code));
+      try {
+        await this.authService.register(this.loginRegister);
+
+      } catch (error) {
+        await this.presentToast(this.translate(error.code));
+      }
+
     } finally {
       this.loading.dismiss();
     }
@@ -48,7 +74,7 @@ export class RegisterPage implements OnInit {
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({ message: 'Por favor, aguarde...' });
-    // duration: 2000
+    // duration: 3000
     return this.loading.present();
   }
 
@@ -87,7 +113,7 @@ export class RegisterPage implements OnInit {
   }
 
   cancel() {
-
+    this.navCtrl.back();
   }
 
   exibirSenha() {

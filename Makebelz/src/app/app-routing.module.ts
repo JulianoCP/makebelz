@@ -7,14 +7,14 @@ import { LoginGuard } from './guards/login/login.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/authentication/login/login.module#LoginPageModule', canActivate: [LoginGuard] },
-  { path: 'register', loadChildren: './pages/authentication/register/register.module#RegisterPageModule', canActivate: [LoginGuard]},
+  // { path: 'register', loadChildren: './pages/authentication/register/register.module#RegisterPageModule', canActivate: [LoginGuard]},
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule', canActivate: [AuthGuard] },
-  { path: 'router', loadChildren: './pages/router/router.module#RouterPageModule' },
   { path: 'cad-cliente', loadChildren: './pages/cad-cliente/cad-cliente.module#CadClientePageModule'},
   { path: 'cad-manicure', loadChildren: './pages/cad-manicure/cad-manicure.module#CadManicurePageModule' },
   { path: 'contacts', loadChildren: './pages/contacts/contacts.module#ContactsPageModule' },
   { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' },
   { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
 ];
 
 @NgModule({

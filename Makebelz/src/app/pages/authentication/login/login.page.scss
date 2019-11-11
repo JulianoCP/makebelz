@@ -1,0 +1,40 @@
+// ion-content{
+//     --background: #f5e3f2 url("../../../../assets/img/logo.png") no-repeat top / cover; // 0 0/100% 100% no-repeat center center / cover;
+// }
+
+
+// ion-content {
+//     --background: #f3dbf6 center / cover;
+// }
+
+
+h1 { 
+    color: #d54d7b; font-family: "Great Vibes", cursive;
+    font-size: 160%; line-height: 135%; font-weight: normal;
+    margin-bottom: 0px; margin-top: 0px; text-align: center;
+    text-shadow: 0 1px 1px #fff;
+}
+
+// ion-input {
+//     border-bottom: 1px solid rgb(178, 122, 211);
+// }
+
+// ion-item {
+//     --border-color: var(--ion-color-danger, #f1453d);
+// }
+
+
+ion-item {
+    // --highlight-color-invalid: #f04141 !important;
+    --highlight-color-valid: #10dc60 !important;
+}
+
+
+
+.login-grid {
+    height: 80%;
+
+    ion-row {
+        height: 100%;
+    }
+}

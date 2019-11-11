@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/interfaces/login';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/pages/authentication/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,17 @@ export class LoginPage implements OnInit {
 
   public userLogin: Login = {};
   private loading: any;
+  public tipo: boolean;
+
 
   constructor(
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    private authService: AuthService
+    private authService: AuthService,
+    private navCtrl: NavController,
+    private router: Router,
+    public activatedRoute: ActivatedRoute,
+
   ) { }
 
   ngOnInit() {}
@@ -74,5 +81,14 @@ export class LoginPage implements OnInit {
         console.error(code);
     }
     return message;
+  }
+
+  exibirSenha() {
+    this.tipo = !this.tipo;
+  }
+
+  newAccount() {
+    this.router.navigate(['./register'], {relativeTo: this.activatedRoute});
+    this.navCtrl.setDirection('forward');
   }
 }

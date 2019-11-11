@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from '../../pages/authentication/auth.service';
+import { AuthService } from 'src/app/pages/authentication/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
+export class ProfileGuard implements CanActivate {
   private perfil: any;
   constructor(
     private authService: AuthService,
     private router: Router,
-    // private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+
+
   ) {}
 
   canActivate(): Promise<boolean> {
     return new Promise(resolve => {
       this.authService.getAuth().onAuthStateChanged(user => {
-        if (user) { this.router.navigate(['home']); }
+        if (user) { this.router.navigate(['profile']); }
         resolve(!user ? true : false);
       });
     });

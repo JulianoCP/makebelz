@@ -1,30 +1,92 @@
 <ion-header no-border>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">
-      MakeBelz
-    </ion-title>
+  <ion-toolbar class="ion-text-center">
+    <img height="300px" width="300px" src="../../../../assets/img/logo.png"/>
+    <h1>MakeBelz</h1>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
 
-  <div>
-  <form (ngSubmit)="login()" style="margin-top:20%">
-      <ion-item>
-        <ion-input [(ngModel)]="userLogin.email" placeholder="Email" type="text" name="login"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input [(ngModel)]="userLogin.password" placeholder="Senha" type="password" name="senha"></ion-input>
-      </ion-item>
-      <ion-button expand="full" type="submit" color="success" >
-          <ion-icon slot="start" name="share-alt"></ion-icon>
-          Entrar
-      </ion-button>
-    </form>
-  </div>
-  <ion-button expand="full" routerLink="/register" color="medium" >
-    <ion-icon slot="start" name="add"></ion-icon>
-    Cadastrar
-  </ion-button>
+<ion-content>
+ 
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-text-center">
+      
+      <ion-col size="12">
+        
+        <ion-item no-border>
+          <ion-label position="floating">Login</ion-label>
+          <ion-input [(ngModel)]="userLogin.email" type="text" name="login"></ion-input>
+        </ion-item>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-text-center">
+      
+      <ion-col size="10">
+
+
+        <ion-item no-border>
+          <ion-label position="floating">Senha</ion-label>
+
+          <ion-input [(ngModel)]="userLogin.password" [type]="tipo ? 'text': 'password'" name="password"></ion-input>
+
+        
+        </ion-item>
+    
+      </ion-col>
+
+
+
+      <ion-col size="2">
+    
+        <ion-button (click)="exibirSenha()" fill="clear">
+          <ion-icon slot="end" [name]="tipo ? 'eye-off' : 'eye'" ></ion-icon>
+        </ion-button>
+
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" (click)="login()" color="success">
+          <ion-icon slot="start" name="share-alt" color="dark"></ion-icon>
+          <ion-text color="dark">
+            <h5>Entrar</h5>
+          </ion-text>
+          
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12">
+            <ion-button expand="block" (click)="newAccount()" color="primary">
+                <ion-icon slot="start" name="add"></ion-icon>
+
+                <ion-text>
+                  <h5>Criar Conta</h5>
+                </ion-text>
+                
+              </ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+
 
 </ion-content>
+  
+
+<!-- <footer no-border>
+
+  </footer>
+   -->

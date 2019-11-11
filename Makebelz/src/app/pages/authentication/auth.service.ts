@@ -7,7 +7,9 @@ import { Login } from '../../interfaces/login';
 })
 export class AuthService {
 
-  constructor(private authentication: AngularFireAuth) { }
+  constructor(
+    public authentication: AngularFireAuth,
+    ) { }
 
   login(login: Login) {
     return this.authentication.auth.signInWithEmailAndPassword(login.email, login.password);
@@ -15,6 +17,11 @@ export class AuthService {
 
   register(login: Login) {
     return this.authentication.auth.createUserWithEmailAndPassword(login.email, login.password);
+    // .then(data => {
+    //   console.log('cliente inserido', data.credential);
+    // }).catch (error => {
+    //   console.log('erro ao inserir cliente');
+    // });
   }
 
   logout() {

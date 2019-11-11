@@ -29,8 +29,8 @@ export class CadClientePage implements OnInit {
 
   async register() {
     try {
-      
-      let usuario = {};
+
+      const usuario = {};
 
       usuario['Name'] = this.re.name;
       usuario['Bairro'] = this.re.end_bairro;
