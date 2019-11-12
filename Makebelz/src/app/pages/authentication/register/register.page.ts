@@ -23,6 +23,7 @@ export class RegisterPage implements OnInit {
 
   private profile: {};
 
+
   constructor(
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
@@ -37,7 +38,7 @@ export class RegisterPage implements OnInit {
     this.profile = {
       type: localStorage.getItem('profile')
     };
-    localStorage.clear();
+    // localStorage.removeItem('profile');
   }
 
 

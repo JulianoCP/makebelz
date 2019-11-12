@@ -8,11 +8,15 @@ import { HomePage } from './home.page';
 import { ContactsPage } from '../contacts/contacts.page';
 import { AgendaPage } from '../agenda/agenda.page';
 import { MapPage } from '../map/map.page'
+import { HomeService } from './home.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    resolve: {
+      data: HomeService
+    },
     children: [
       {
         path: 'contacts',

@@ -17,14 +17,12 @@ export class ProfilePage implements OnInit {
   }
 
   professional() {
-    console.log('profissional');
     localStorage.setItem('profile', 'professional');
     this.route.navigate(['register'], { relativeTo: this.activatedRoute });
   }
 
 
   client() {
-    console.log('cliente');
     localStorage.setItem('profile', 'client');
     this.route.navigate(['register'], { relativeTo: this.activatedRoute });
   }

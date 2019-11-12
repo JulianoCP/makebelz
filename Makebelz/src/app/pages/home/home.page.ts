@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/pages/authentication/auth.service';
-import * as firebase from 'firebase/app';
 import { PopoverController, NavController } from '@ionic/angular';
+import { CrudService } from 'src/app/services/crud.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +13,18 @@ import { PopoverController, NavController } from '@ionic/angular';
 
 export class HomePage implements OnInit {
 
-  private loading: any;
-
   constructor(
     private authService: AuthService,
     public popoverController: PopoverController,
-    public navCtrl: NavController
-  ) { }
+    public navCtrl: NavController,
+    public dataService: CrudService,
+    public firestore: AngularFirestore,
+    public homeService: HomeService
+  ) {}
 
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
 
 
   myProfile() {
@@ -53,9 +58,9 @@ export class HomePage implements OnInit {
     }
   }
 
-  currentUser()
-  {
-    console.log(firebase.auth().currentUser);
-  }
+  // currentUser()
+  // {
+  //   console.log(firebase.auth().currentUser);
+  // }
 
 }
