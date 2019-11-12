@@ -22,6 +22,27 @@ export class HomePage implements OnInit {
   ngOnInit() {}
 
 
+  myProfile() {
+    console.log('meu perfil');
+  }
+
+  newSchedule() {
+    console.log('Novo agendamento');
+  }
+
+  evaluation() {
+    console.log('avaliação');
+  }
+
+  schedule() {
+    console.log('Agenda');
+  }
+
+  setting() {
+    console.log('Configuração');
+  }
+
+
   async logout() {
     try {
       await this.authService.logout();

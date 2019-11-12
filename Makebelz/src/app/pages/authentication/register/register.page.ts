@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/pages/authentication/auth.service';
 import { RegisterService } from './register.service';
 import { FirebaseDatabase, FirebaseApp } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-register',
@@ -19,13 +21,24 @@ export class RegisterPage implements OnInit {
   private loading: any;
   public tipo: boolean;
 
+  private profile: {};
+
   constructor(
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private authService: AuthService,
     public navCtrl: NavController,
     public registerService: RegisterService,
-  ) {}
+    public route: Router,
+    public activetedRoute: ActivatedRoute,
+    private crudService: CrudService,
+
+  ) {
+    this.profile = {
+      type: localStorage.getItem('profile')
+    };
+    localStorage.clear();
+  }
 
 
 
@@ -37,7 +50,7 @@ export class RegisterPage implements OnInit {
     await this.presentLoading();
 
     try {
-
+      // ***** comenta caso não queira usar a api de validação de e-mail
       // const data = await this.registerService.verifyEmail(this.loginRegister.email);
       // const format = data[`format_valid`];
       // const smtpCheck = data[`smtp_check`];
@@ -52,7 +65,7 @@ export class RegisterPage implements OnInit {
       //   this.presentToast('E-mail inválido!');
       //   return false;
       // }
-
+      /// até aqui
 
       if (this.loginRegister.password !== this.loginRegister.confirmPassword) {
         this.presentToast('Senha incompatível');
@@ -60,8 +73,17 @@ export class RegisterPage implements OnInit {
       }
 
       try {
-        await this.authService.register(this.loginRegister);
+        // método que cria o usuáro e insere o tipo de perfil no banco.
+        await this.authService.register(this.loginRegister).then(res => {
+          this.crudService.create_Usuario(this.profile , firebase.auth().currentUser.uid, 'Profile').then(resp => {
+            console.log('dado inserido com sucesso');
+          }).catch (error => {
+            console.log('dado não inserido!!', error);
+          });
 
+        }).catch(error => {
+          console.log('Erro ao criar usuário', error);
+        });
       } catch (error) {
         await this.presentToast(this.translate(error.code));
       }
@@ -113,7 +135,10 @@ export class RegisterPage implements OnInit {
   }
 
   cancel() {
-    this.navCtrl.back();
+
+    this.route.navigate(['login']);
+    this.navCtrl.setDirection('back');
+    localStorage.clear();
   }
 
   exibirSenha() {

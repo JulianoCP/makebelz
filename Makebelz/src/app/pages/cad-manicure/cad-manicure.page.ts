@@ -62,8 +62,8 @@ export class CadManicurePage implements OnInit {
 
       this.crudService.create_Usuario(usuario, firebase.auth().currentUser.uid,'Manicure').then(resp => {
       console.log(usuario);
-      })
-      this.router.navigate(['../home'],{relativeTo:this.activatedRoute})
+      });
+      this.router.navigate(['../home'],{relativeTo:this.activatedRoute});
       
     } catch (error) {
       console.log("DEU RUIM");

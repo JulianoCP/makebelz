@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'contacts', loadChildren: './pages/contacts/contacts.module#ContactsPageModule' },
   { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' },
   { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' },
-  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'profile', loadChildren: './pages/authentication/profile/profile.module#ProfilePageModule' },
 ];
 
 @NgModule({

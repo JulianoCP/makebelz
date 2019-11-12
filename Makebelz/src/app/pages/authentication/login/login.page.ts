@@ -88,7 +88,7 @@ export class LoginPage implements OnInit {
   }
 
   newAccount() {
-    this.router.navigate(['./register'], {relativeTo: this.activatedRoute});
+    this.router.navigate(['./profile'], {relativeTo: this.activatedRoute});
     this.navCtrl.setDirection('forward');
   }
 }

@@ -1,0 +1,50 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-title class="ion-text-center">
+      <h1>Tipo de Usuario</h1>
+    </ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid class="ion-no-padding">
+    <br>
+    <br>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="block" (click)="client()" color="success" fill="outline">
+              <ion-icon slot="start" name="contacts" color="dark"></ion-icon>
+            <ion-text color="dark">
+              <h1>Cliente</h1>
+            </ion-text>
+            
+          </ion-button>
+          <ion-icon slot="end" name="share-alt" color="dark"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <br>
+  
+
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12">
+              <ion-button expand="block" (click)="professional()" color="primary" fill="outline">
+                  <ion-icon slot="start" name="ribbon" color="dark"></ion-icon>
+
+                  <ion-text>
+                    <h1>Profissional</h1>
+                  </ion-text>
+                  
+                </ion-button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
