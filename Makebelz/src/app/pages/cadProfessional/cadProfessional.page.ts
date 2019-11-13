@@ -4,9 +4,9 @@ import { CrudService } from '../../services/crud.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-cad-manicure',
-  templateUrl: './cad-manicure.page.html',
-  styleUrls: ['./cad-manicure.page.scss'],
+  selector: 'app-cadProfessional',
+  templateUrl: './cadProfessional.page.html',
+  styleUrls: ['./cadProfessional.page.scss'],
 })
 export class CadManicurePage implements OnInit {
 
@@ -63,7 +63,7 @@ export class CadManicurePage implements OnInit {
       this.crudService.create_Usuario(usuario, firebase.auth().currentUser.uid,'Manicure').then(resp => {
       console.log(usuario);
       });
-      this.router.navigate(['../home'],{relativeTo:this.activatedRoute});
+      // this.router.navigate(['../home'],{relativeTo:this.activatedRoute});
       
     } catch (error) {
       console.log("DEU RUIM");

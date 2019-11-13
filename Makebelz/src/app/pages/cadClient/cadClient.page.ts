@@ -4,9 +4,9 @@ import { CrudService } from '../../services/crud.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-cad-cliente',
-  templateUrl: './cad-cliente.page.html',
-  styleUrls: ['./cad-cliente.page.scss'],
+  selector: 'app-cadClient',
+  templateUrl: './cadClient.page.html',
+  styleUrls: ['./cadClient.page.scss'],
 })
 export class CadClientePage implements OnInit {
 
@@ -39,11 +39,10 @@ export class CadClientePage implements OnInit {
       usuario['Rua'] = this.re.end_numero;
       usuario['Phone'] = this.re.phone;
 
-      this.crudService.create_Usuario(usuario,firebase.auth().currentUser.uid,'Cliente').then(resp => {
+      this.crudService.create_Usuario(usuario, firebase.auth().currentUser.uid, 'Cliente').then(resp => {
       console.log(usuario);
       })
-      this.router.navigate(['../home'],{relativeTo:this.activatedRoute})
-      
+      // this.router.navigate(['../home'],{relativeTo:this.activatedRoute})
     } catch (error) {
       console.log("DEU RUIM");
       console.log(error);

@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit {
     this.profile = {
       type: localStorage.getItem('profile')
     };
-    // localStorage.removeItem('profile');
+    localStorage.removeItem('profile');
   }
 
 

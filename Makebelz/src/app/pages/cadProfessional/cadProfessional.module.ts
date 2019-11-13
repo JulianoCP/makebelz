@@ -5,17 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CadClientePage } from './cad-cliente.page';
+import { CadManicurePage } from './cadProfessional.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CadClientePage
-  },
-  {
-    path: 'home',
-    loadChildren: () =>
-      import('../home/home.module').then(m => m.HomePageModule)
+    component: CadManicurePage
   }
 ];
 
@@ -26,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CadClientePage]
+  declarations: [CadManicurePage]
 })
-export class CadClientePageModule {}
+export class CadManicurePageModule {}

@@ -4,6 +4,7 @@ import { PopoverController, NavController } from '@ionic/angular';
 import { CrudService } from 'src/app/services/crud.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HomeService } from './home.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +14,20 @@ import { HomeService } from './home.service';
 
 export class HomePage implements OnInit {
 
+  private profileType: string;
+
   constructor(
     private authService: AuthService,
     public popoverController: PopoverController,
     public navCtrl: NavController,
     public dataService: CrudService,
     public firestore: AngularFirestore,
-    public homeService: HomeService
-  ) {}
+    public homeService: HomeService,
+    public route: Router,
+    public activatedRouter: ActivatedRoute
+  ) {
+    this.profileType = this.homeService.profile.type;
+  }
 
 
   ngOnInit() {
@@ -28,6 +35,13 @@ export class HomePage implements OnInit {
 
 
   myProfile() {
+    if (this.homeService.profile.type === 'client') {
+      this.route.navigate(['./cadClient'], {relativeTo: this.activatedRouter });
+    }
+
+    if (this.homeService.profile.type === 'professional') {
+      this.route.navigate(['./cadProfessional'], {relativeTo: this.activatedRouter });
+    }
     console.log('meu perfil');
   }
 

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import { ContactsPage } from '../contacts/contacts.page';
 import { AgendaPage } from '../agenda/agenda.page';
-import { MapPage } from '../map/map.page'
+import { MapPage } from '../map/map.page';
 import { HomeService } from './home.service';
 
 const routes: Routes = [
@@ -16,21 +16,27 @@ const routes: Routes = [
     component: HomePage,
     resolve: {
       data: HomeService
-    },
-    children: [
-      {
-        path: 'contacts',
-        component: ContactsPage,
-      },
-      {
-        path: 'calendar',
-        component: AgendaPage,
-      },
-      {
-        path: 'map',
-        component: MapPage,
-      }
-    ]
+    }
+  },
+  {
+    path: 'contacts',
+    loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
+  },
+  {
+    path: 'calendar',
+    loadChildren: () => import('../agenda/agenda.module').then(m => m.AgendaPageModule)
+  },
+  {
+    path: 'map',
+    loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
+  },
+  {
+    path: 'cadClient',
+    loadChildren: () => import('../cadClient/cadClient.module').then(m => m.CadClientePageModule)
+  },
+  {
+    path: 'cadProfessional',
+    loadChildren: () => import('../cadProfessional/cadProfessional.module').then(m => m.CadManicurePageModule)
   }
 ];
 

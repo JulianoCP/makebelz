@@ -47,5 +47,5 @@ export class HomeService implements Resolve<any> {
   get profile() {
     return this._profile.getValue();
   }
-
+ 
 }
