@@ -14,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class HomePage implements OnInit {
 
-  private profileType: string;
+  // private profileType: string;
 
   constructor(
     private authService: AuthService,
@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
     public route: Router,
     public activatedRouter: ActivatedRoute
   ) {
-    this.profileType = this.homeService.profile.type;
+    // this.profileType = this.homeService.profile.type;
   }
 
 
@@ -64,6 +64,7 @@ export class HomePage implements OnInit {
 
   async logout() {
     try {
+      this.homeService.profile = '';
       await this.authService.logout();
     } catch (error) {
       console.log(error);

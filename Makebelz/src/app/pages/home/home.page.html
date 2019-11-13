@@ -1,4 +1,4 @@
-<ion-menu>
+<ion-menu *ngIf="homeService.profile$ | async as profile">
   <ion-list>
 
     <ion-item>
@@ -7,12 +7,12 @@
     </ion-item>
 
 
-    <ion-item *ngIf="homeService.profile.type === 'client'">
+    <ion-item *ngIf="profile.type === 'client'">
       <ion-icon name="add-circle-outline" slot="start"></ion-icon>
       <ion-label (click)="newSchedule()">Novo Agendamento</ion-label>
     </ion-item>
     
-    <ion-item *ngIf="homeService.profile.type === 'client'">
+    <ion-item *ngIf="profile.type === 'client'">
       <ion-icon name="podium" slot="start"></ion-icon>
       <ion-label (click)="evaluation()">Avaliações</ion-label>
     </ion-item>
@@ -47,14 +47,14 @@
 </ion-menu>
 
 
-<div class="ion-page" main>
+<div class="ion-page" main *ngIf="homeService.profile$ | async as profile">
   <ion-header no-border>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title style="margin-left: 26%;" color="dark">Home</ion-title>
-      {{homeService.profile.type}}
+      {{profile.type}}
     </ion-toolbar>
   </ion-header>
 
