@@ -29,6 +29,14 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
+  isClient() {
+    return this.homeService.profile.type === 'client';
+  }
+
+  isProfessional() {
+    return this.homeService.profile.type === 'professional';
+  }
+
 
   myProfile() {
     if (this.homeService.profile.type === 'client') {
