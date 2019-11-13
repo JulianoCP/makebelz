@@ -14,8 +14,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class HomePage implements OnInit {
 
-  // private profileType: string;
-
   constructor(
     private authService: AuthService,
     public popoverController: PopoverController,
@@ -25,9 +23,7 @@ export class HomePage implements OnInit {
     public homeService: HomeService,
     public route: Router,
     public activatedRouter: ActivatedRoute
-  ) {
-    // this.profileType = this.homeService.profile.type;
-  }
+  ) {}
 
 
   ngOnInit() {
@@ -40,7 +36,7 @@ export class HomePage implements OnInit {
     }
 
     if (this.homeService.profile.type === 'professional') {
-      this.route.navigate(['./cadProfessional'], {relativeTo: this.activatedRouter });
+      this.route.navigate(['./cadProfessional'], { relativeTo: this.activatedRouter });
     }
     console.log('meu perfil');
   }
@@ -61,6 +57,17 @@ export class HomePage implements OnInit {
     console.log('Configuração');
   }
 
+  contacts() {
+    this.route.navigate(['./contacts'], { relativeTo: this.activatedRouter });
+  }
+
+  calendar() {
+    this.route.navigate(['./calendar'], { relativeTo: this.activatedRouter });
+  }
+
+  map() {
+    this.route.navigate(['./map'], { relativeTo: this.activatedRouter });
+  }
 
   async logout() {
     try {
@@ -69,7 +76,7 @@ export class HomePage implements OnInit {
     } catch (error) {
       console.log(error);
     } finally {
-      console.log("FIM");
+      console.log('FIM');
     }
   }
 
