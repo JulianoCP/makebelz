@@ -28,12 +28,12 @@ const routes: Routes = [
     loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
   },
   {
-    path: 'cadClient',
-    loadChildren: () => import('../cadClient/cadClient.module').then(m => m.CadClientePageModule)
+    path: 'newClient',
+    loadChildren: () => import('../client/new/new.module').then(m => m.NewPageModule)
   },
   {
-    path: 'cadProfessional',
-    loadChildren: () => import('../cadProfessional/cadProfessional.module').then(m => m.CadManicurePageModule)
+    path: 'newProfessional',
+    loadChildren: () => import('../professional/new/new.module').then(m => m.NewPageModule)
   }
 ];
 

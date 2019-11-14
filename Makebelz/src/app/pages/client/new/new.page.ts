@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from 'src/app/services/crud.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { CrudService } from '../../services/crud.service';
-import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-cadClient',
-  templateUrl: './cadClient.page.html',
-  styleUrls: ['./cadClient.page.scss'],
+  selector: 'app-new',
+  templateUrl: './new.page.html',
+  styleUrls: ['./new.page.scss'],
 })
-export class CadClientePage implements OnInit {
+export class NewPage implements OnInit {
 
   constructor(
     private crudService: CrudService,
@@ -49,5 +50,4 @@ export class CadClientePage implements OnInit {
     } 
 
   }
-
 }

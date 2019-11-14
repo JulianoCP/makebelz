@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadManicurePage } from './cadProfessional.page';
+import { ProfessionalPage } from './professional.page';
 
-describe('CadManicurePage', () => {
-  let component: CadManicurePage;
-  let fixture: ComponentFixture<CadManicurePage>;
+describe('ProfessionalPage', () => {
+  let component: ProfessionalPage;
+  let fixture: ComponentFixture<ProfessionalPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CadManicurePage ],
+      declarations: [ ProfessionalPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CadManicurePage);
+    fixture = TestBed.createComponent(ProfessionalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

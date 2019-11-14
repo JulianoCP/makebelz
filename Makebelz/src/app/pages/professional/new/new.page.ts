@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase/app';
-import { CrudService } from '../../services/crud.service';
+import { CrudService } from 'src/app/services/crud.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase/app';
+
 
 @Component({
-  selector: 'app-cadProfessional',
-  templateUrl: './cadProfessional.page.html',
-  styleUrls: ['./cadProfessional.page.scss'],
+  selector: 'app-new',
+  templateUrl: './new.page.html',
+  styleUrls: ['./new.page.scss'],
 })
-export class CadManicurePage implements OnInit {
-
+export class NewPage implements OnInit {
   constructor(
     private crudService: CrudService,
     public router: Router,
@@ -45,7 +45,6 @@ export class CadManicurePage implements OnInit {
 
   async register() {
     try {
-      
       let usuario = {};
 
       usuario['Name'] = this.re.name;
@@ -64,11 +63,11 @@ export class CadManicurePage implements OnInit {
       console.log(usuario);
       });
       // this.router.navigate(['../home'],{relativeTo:this.activatedRoute});
-      
+
     } catch (error) {
       console.log("DEU RUIM");
       console.log(error);
-    } 
+    }
 
   }
 

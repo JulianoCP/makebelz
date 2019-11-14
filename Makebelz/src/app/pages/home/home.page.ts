@@ -40,11 +40,11 @@ export class HomePage implements OnInit {
 
   myProfile() {
     if (this.homeService.profile.type === 'client') {
-      this.route.navigate(['./cadClient'], {relativeTo: this.activatedRouter });
+      this.route.navigate(['./newClient'], {relativeTo: this.activatedRouter });
     }
 
     if (this.homeService.profile.type === 'professional') {
-      this.route.navigate(['./cadProfessional'], { relativeTo: this.activatedRouter });
+      this.route.navigate(['./newProfessional'], { relativeTo: this.activatedRouter });
     }
     console.log('meu perfil');
   }
