@@ -50,15 +50,20 @@ export class HomePage implements OnInit {
   }
 
   newSchedule() {
-    console.log('Novo agendamento');
+    this.route.navigate(['./newScheduling'], { relativeTo: this.activatedRouter });
   }
 
   evaluation() {
     console.log('avaliação');
   }
 
-  schedule() {
-    console.log('Agenda');
+  serviceProvided() {
+    this.route.navigate(['./serviceProvided'], { relativeTo: this.activatedRouter });
+  }
+
+  horarios()
+  {
+    
   }
 
   setting() {
