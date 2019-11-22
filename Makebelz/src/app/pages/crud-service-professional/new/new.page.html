@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" color="dark">Serviços Prestados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form>
+      <ion-item>
+        <ion-label>Pedicure</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('pedicure')" [(ngModel)]="serv.pedicure" name="pedicure" ></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="map['pedicure']">
+        <ion-item color="light">
+          <ion-label >Custo deste serviço:</ion-label>
+          <ion-input required [(ngModel)]="priceServ.pedicure" type="number" name="pedicure"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-item>
+        <ion-label>Manicure</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('manicure')" [(ngModel)]="serv.manicure" name="manicure" ></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="map['manicure']">
+          <ion-item color="light">
+            <ion-label >Custo deste serviço:</ion-label>
+            <ion-input required [(ngModel)]="priceServ.manicure" type="number" name="manicure"></ion-input>
+          </ion-item>
+        </div>
+
+      <ion-item>
+        <ion-label>Limpeza de pele</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('pele')" [(ngModel)]="serv.pele" name="pele"></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="map['pele']">
+          <ion-item color="light">
+            <ion-label >Custo deste serviço:</ion-label>
+            <ion-input required [(ngModel)]="priceServ.pele" type="number" name="pele"></ion-input>
+          </ion-item>
+        </div>
+
+      <ion-item>
+        <ion-label>Maquiadora</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('maquiadora')" [(ngModel)]="serv.maquiadora" name="maquiadora"></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="map['maquiadora']">
+          <ion-item color="light">
+            <ion-label >Custo deste serviço:</ion-label>
+            <ion-input required [(ngModel)]="priceServ.maquiadora" type="number" name="price" name="maquiadora"></ion-input>
+          </ion-item>
+        </div>
+
+      <ion-item>
+        <ion-label>Cabeleireira</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('cabeleireira')" [(ngModel)]="serv.cabeleireira" name="cabeleireira"></ion-toggle>
+      </ion-item>
+
+      <div *ngIf="map['cabeleireira']">
+        <ion-item color="light">
+          <ion-label >Custo deste serviço:</ion-label>
+          <ion-input required [(ngModel)]="priceServ.cabeleireira" type="number" name="cabeleireira"></ion-input>
+        </ion-item>
+      </div>
+
+    <ion-grid>
+      <ion-row class="full-width">
+
+        <ion-col size="6">
+          <ion-button expand="full"  color="tertiary" routerLink="/home" routerDirection="back">
+          <ion-icon slot="start" name="arrow-back" ></ion-icon>
+            Voltar
+          </ion-button>
+
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="full"  color="success" (click)="cadServices()" >
+              <ion-icon slot="start" name="checkmark"></ion-icon>
+              Confirmar
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

@@ -37,8 +37,8 @@ const routes: Routes = [
     loadChildren: () => import('../professional/new/new.module').then(m => m.NewPageModule)
   },
   {
-    path: 'serviceProvided',
-    loadChildren: () => import('../services-provided/services-provided.module').then(m => m.ServicesProvidedPageModule)
+    path: 'crudServiceProfessional',
+    loadChildren: () => import('../crud-service-professional/crud-service-professional.module').then(m => m.CrudServiceProfessionalPageModule)
   }
 ];
 
