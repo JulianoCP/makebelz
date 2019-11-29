@@ -1,0 +1,31 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title class="ion-text-center" color="dark">Servicos</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div>
+  <ion-button (click)="view()">
+    View
+  </ion-button>
+
+  <ion-button (click)="edit()">
+    Edit
+  </ion-button>
+
+  <ion-grid>
+    <ion-row class="full-width">
+      <ion-col size="8">
+        <ion-button expand="full"  color="tertiary" routerLink="/home" >
+        <ion-icon slot="start" name="arrow-back" ></ion-icon>
+          Voltar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+</ion-content>

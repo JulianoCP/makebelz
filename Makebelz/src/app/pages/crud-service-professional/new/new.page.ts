@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from 'src/app/services/crud.service';
+import { CrudService } from '../../../services/crud.service';
 import * as firebase from 'firebase/app';
 
 @Component({
-  selector: 'app-services-provided',
-  templateUrl: './services-provided.page.html',
-  styleUrls: ['./services-provided.page.scss'],
+  selector: 'app-new',
+  templateUrl: './new.page.html',
+  styleUrls: ['./new.page.scss'],
 })
-export class ServicesProvidedPage implements OnInit {
+
+export class NewPage implements OnInit {
 
 
   private  map = {'pedicure' : false,

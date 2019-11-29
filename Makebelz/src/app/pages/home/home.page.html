@@ -20,10 +20,15 @@
   </ion-list>
   
   <ion-content>
-    <ion-item *ngIf="isClient() || isProfessional()">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      <ion-label (click)="schedule()">Agenda</ion-label>
+    <ion-item *ngIf="isProfessional()">
+      <ion-icon name="cut" slot="start"></ion-icon>
+      <ion-label (click)="serviceProvided()">Serviços</ion-label>
     </ion-item>
+
+      <ion-item *ngIf="isProfessional()">
+        <ion-icon name="clock" slot="start"></ion-icon>
+        <ion-label (click)="horarios()">Horários</ion-label>
+      </ion-item>
 
     <ion-item *ngIf="isClient() || isProfessional()">
       <ion-icon name="settings" slot="start"></ion-icon>
@@ -37,12 +42,6 @@
     <ion-icon name="log-out" slot="start"></ion-icon>
     <ion-label (click)="logout()">Sair</ion-label>
   </ion-item>
-  
-  <!-- <ion-footer>
-    <ion-toolbar>
-    </ion-toolbar>
-  </ion-footer> -->
-
 
 </ion-menu>
 

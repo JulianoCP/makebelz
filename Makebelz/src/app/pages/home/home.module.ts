@@ -13,7 +13,7 @@ const routes: Routes = [
     component: HomePage,
     resolve: {
       data: HomeService
-    }
+    },
   },
   {
     path: 'contacts',
@@ -21,12 +21,13 @@ const routes: Routes = [
   },
   {
     path: 'calendar',
-    loadChildren: () => import('../agenda/agenda.module').then(m => m.AgendaPageModule)
+    loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
   },
   {
     path: 'map',
     loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
   },
+    
   {
     path: 'newClient',
     loadChildren: () => import('../client/new/new.module').then(m => m.NewPageModule)
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'newProfessional',
     loadChildren: () => import('../professional/new/new.module').then(m => m.NewPageModule)
+  },
+  {
+    path: 'crudServiceProfessional',
+    loadChildren: () => import('../crud-service-professional/crud-service-professional.module').then(m => m.CrudServiceProfessionalPageModule)
   }
 ];
 

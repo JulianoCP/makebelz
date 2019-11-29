@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
 import { CrudService } from 'src/app/services/crud.service';
-import * as firebase from 'firebase/app';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from '../../authentication/auth.service';
 
 @Component({
-  selector: 'app-services-provided',
-  templateUrl: './services-provided.page.html',
-  styleUrls: ['./services-provided.page.scss'],
+  selector: 'app-edit',
+  templateUrl: './edit.page.html',
+  styleUrls: ['./edit.page.scss'],
 })
-export class ServicesProvidedPage implements OnInit {
-
+export class EditPage implements OnInit {
 
   private  map = {'pedicure' : false,
                  'manicure' : false, 
@@ -19,6 +20,8 @@ export class ServicesProvidedPage implements OnInit {
   
   constructor(
     private crudService: CrudService,
+    private firestore: AngularFirestore,
+    private authService: AuthService
   ) {
 
   }
@@ -46,6 +49,7 @@ export class ServicesProvidedPage implements OnInit {
   {
     this.map[value] = !this.map[value];
   }
+
 
   cadServices()
   {
