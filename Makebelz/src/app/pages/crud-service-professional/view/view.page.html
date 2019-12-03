@@ -1,9 +1,51 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>view</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+    <ion-title style="margin-left: 11%" color="dark">Tabela de Serviços</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <h1>
+    <div *ngIf=" manicure > 0 ">
+        <ion-card>
+            <ion-card-header style="background-color: #f4f4f4">
+              <ion-card-title >Manicure:  R$: <span style="color:red;">{{manicure}}</span></ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </div>
+    <div *ngIf=" pedicure > 0 ">
+        <ion-card>
+            <ion-card-header style="background-color: #f4f4f4">
+              <ion-card-title >Pedicure:  R$: <span style="color:red">{{pedicure}}</span></ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </div>
+    <div *ngIf=" cabeleireira > 0 ">
+        <ion-card>
+            <ion-card-header style="background-color: #f4f4f4">
+              <ion-card-title >Cabeleireira:  R$: <span style="color:red">{{cabeleireira}}</span></ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </div>
+    <div *ngIf=" pele > 0 ">
+        <ion-card>
+            <ion-card-header style="background-color: #f4f4f4">
+              <ion-card-title >Pele:  R$: <span style="color:red">{{pele}}</span></ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </div>
+    <div *ngIf=" maquiadora > 0 ">
+        <ion-card>
+            <ion-card-header style="background-color: #f4f4f4">
+              <ion-card-title >Maquiadora:  R$: <span style="color:red">{{maquiadora}}</span></ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </div>
+
+  </h1>
 
 </ion-content>

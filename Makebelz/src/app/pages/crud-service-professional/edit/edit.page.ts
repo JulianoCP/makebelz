@@ -42,7 +42,27 @@ export class EditPage implements OnInit {
     cabeleireira : 0,
   };
 
-  ngOnInit() {
+
+  async ngOnInit() {
+    await this.firestore.collection('Servicos').doc(this.authService.getAuth().currentUser.uid).valueChanges().subscribe(
+      (res: any) => {
+        const{Manicure,Pele,Cabeleireira,Pedicure,Maquiadora } = res
+        this.priceServ.manicure = Manicure ? Manicure : 0
+        this.serv.manicure = Manicure ? true : false 
+        this.map["manicure"] = Manicure ? true : false
+        this.priceServ.pedicure = Pedicure ? Pedicure : 0
+        this.serv.pedicure = Pedicure ? true : false 
+        this.map["pedicure"] = Pedicure ? true : false
+        this.priceServ.cabeleireira = Cabeleireira ? Cabeleireira : 0
+        this.serv.cabeleireira = Cabeleireira ? true : false 
+        this.map["cabeleireira"] = Cabeleireira ? true : false
+        this.priceServ.pele = Pele ? Pele : 0
+        this.serv.pele = Pele ? true : false 
+        this.map["pele"] = Pele ? true : false
+        this.priceServ.maquiadora = Maquiadora ? Maquiadora : 0
+        this.serv.maquiadora = Maquiadora ? true : false 
+        this.map["maquiadora"] = Maquiadora ? true : false
+    })
   }
 
   isToggle(value)
@@ -64,7 +84,7 @@ export class EditPage implements OnInit {
           service["Manicure"] = this.priceServ.manicure
         }
         if ( this.map["pele"] == true ) {
-          service["Limpeza de pele"] = this.priceServ.pele
+          service["Pele"] = this.priceServ.pele
         }
         if ( this.map["maquiadora"] == true ) {
           service["Maquiadora"] = this.priceServ.maquiadora
@@ -74,7 +94,6 @@ export class EditPage implements OnInit {
         }
 
         this.crudService.create_Usuario(service, firebase.auth().currentUser.uid,'Servicos').then(resp => {
-          console.log(service);
           });
       }catch(error){
         console.log("Erro!");

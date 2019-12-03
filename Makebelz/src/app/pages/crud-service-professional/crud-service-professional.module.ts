@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'editServicos',
     loadChildren: () => import('../crud-service-professional/edit/edit.module').then(m => m.EditPageModule)
+  },
+  {
+    path: 'viewServicos',
+    loadChildren: () => import('../crud-service-professional/view/view.module').then(m => m.ViewPageModule)
   }
 ];
 

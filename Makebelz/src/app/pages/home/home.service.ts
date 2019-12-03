@@ -28,7 +28,6 @@ export class HomeService implements Resolve<any> {
     });
   }
 
-
   getProfile() {
     return new Promise((resolve, reject) => {
       this.firestore.collection('Profile').doc(this.authService.getAuth().currentUser.uid).valueChanges().subscribe(

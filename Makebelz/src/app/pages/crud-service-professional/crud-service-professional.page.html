@@ -8,17 +8,28 @@
 <ion-content>
 
   <div>
-  <ion-button (click)="view()">
-    View
-  </ion-button>
+      <ion-grid>
+          <ion-row class="full-width">
+  <ion-col size="6">
+    <ion-button expand="full"  color="tertiary" (click)="view()" >
+    <ion-icon slot="start" name="list" ></ion-icon>
+      View
+    </ion-button>
+  </ion-col>
 
-  <ion-button (click)="edit()">
-    Edit
-  </ion-button>
+  <ion-col size="6">
+      <ion-button expand="full"  color="tertiary" (click)="edit()" >
+      <ion-icon slot="start" name="create" ></ion-icon>
+        Edit
+      </ion-button>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
 
   <ion-grid>
     <ion-row class="full-width">
-      <ion-col size="8">
+      <ion-col size="12">
         <ion-button expand="full"  color="tertiary" routerLink="/home" >
         <ion-icon slot="start" name="arrow-back" ></ion-icon>
           Voltar

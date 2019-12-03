@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
   },
   {
+    path: 'servicos',
+    loadChildren: () => import('../crud-service-professional/view/view.module').then(m => m.ViewPageModule)
+  },
+  {
     path: 'map',
     loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
   },

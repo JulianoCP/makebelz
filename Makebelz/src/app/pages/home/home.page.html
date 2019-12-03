@@ -45,7 +45,6 @@
 
 </ion-menu>
 
-
 <div class="ion-page" main *ngIf="homeService.profile$ | async as profile">
   <ion-header no-border>
     <ion-toolbar>
@@ -57,20 +56,25 @@
     </ion-toolbar>
   </ion-header>
 
-
   <ion-content>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
 
-        <ion-tab-button (click)="contacts()">
-          <ion-icon name="contacts"></ion-icon>
-          <ion-label>Contatos</ion-label>
-        </ion-tab-button>
-    
-        <ion-tab-button (click)="calendar()">
+    <ion-tabs>
+
+      <ion-tab-bar slot="bottom" >
+        <ion-tab-button (click)="agenda()">
           <ion-icon name="calendar"></ion-icon>
           <ion-label>Agenda</ion-label>
         </ion-tab-button>
+    
+        <ion-tab-button (click)="calendar()" *ngIf="isClient()">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Agenda</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="servicos()" *ngIf="isProfessional()">
+            <ion-icon name="cut"></ion-icon>
+            <ion-label>Serviços</ion-label>
+          </ion-tab-button>
     
         <ion-tab-button (click)="map()">
           <ion-icon name="map"></ion-icon>
@@ -80,4 +84,5 @@
       </ion-tab-bar>
     </ion-tabs>
   </ion-content>
+  
 </div>
