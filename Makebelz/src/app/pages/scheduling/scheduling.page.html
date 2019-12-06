@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>scheduling</ion-title>
+    <ion-title class="ion-text-center" color="dark">Lista Manicures</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div >
+      <ion-card *ngFor="let item of manicures">
+          <ion-card-header style="background-color: #f4f4f4">
+            <ion-card-title><span style="color:rgba(35, 14, 231, 0.795);">{{item.Name}}</span></ion-card-title>
+            <ion-card-content>
+              <span style="color: crimson">
+                {{item.Phone}}
+              </span>
+            </ion-card-content>
+          </ion-card-header>
+      </ion-card>
+  </div>
 
 </ion-content>

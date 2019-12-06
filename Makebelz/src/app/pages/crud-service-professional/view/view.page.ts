@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../authentication/auth.service';
-import { async } from '@angular/core/testing';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -33,8 +32,7 @@ export class ViewPage implements OnInit {
         this.pedicure = Pedicure ? Pedicure : 0
         this.cabeleireira = Cabeleireira ? Cabeleireira : 0
         this.pele = Pele ? Pele : 0
-        this.maquiadora = Maquiadora ? Maquiadora : 0
-        console.log(res)
+        this.maquiadora = Maquiadora ? Maquiadora : 0 
     })
   }
 

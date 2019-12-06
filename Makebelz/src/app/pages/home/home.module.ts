@@ -43,6 +43,10 @@ const routes: Routes = [
   {
     path: 'crudServiceProfessional',
     loadChildren: () => import('../crud-service-professional/crud-service-professional.module').then(m => m.CrudServiceProfessionalPageModule)
+  },
+  {
+    path: 'newScheduling',
+    loadChildren: () => import('../scheduling/scheduling.module').then(m => m.SchedulingPageModule)
   }
 ];
 
