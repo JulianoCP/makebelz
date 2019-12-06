@@ -5,15 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
-import { HomeService } from './home.service';
+import { ProfileService } from '../authentication/profile/profile.service';
+// import { HomeService } from './home.service';
+// import { ProfileService } from '../authentication/profile/profile.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
     resolve: {
-      data: HomeService
-    },
+      profileService: ProfileService
+    }
   },
   {
     path: 'contacts',
@@ -49,6 +51,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  providers: [ ProfileService ]
+
 })
 export class HomePageModule {}

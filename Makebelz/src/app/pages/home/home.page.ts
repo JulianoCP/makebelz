@@ -5,6 +5,7 @@ import { CrudService } from 'src/app/services/crud.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HomeService } from './home.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProfileService } from '../authentication/profile/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -20,9 +21,10 @@ export class HomePage implements OnInit {
     public navCtrl: NavController,
     public dataService: CrudService,
     public firestore: AngularFirestore,
-    public homeService: HomeService,
+    // public homeService: HomeService,
     public route: Router,
-    public activatedRouter: ActivatedRoute
+    public activatedRouter: ActivatedRoute,
+    public profileService: ProfileService
   ) {}
 
 
@@ -30,20 +32,20 @@ export class HomePage implements OnInit {
   }
 
   isClient() {
-    return this.homeService.profile.type === 'client';
+    return this.profileService.profile.type === 'client';
   }
 
   isProfessional() {
-    return this.homeService.profile.type === 'professional';
+    return this.profileService.profile.type === 'professional';
   }
 
 
   myProfile() {
-    if (this.homeService.profile.type === 'client') {
+    if (this.profileService.profile.type === 'client') {
       this.route.navigate(['./newClient'], {relativeTo: this.activatedRouter });
     }
 
-    if (this.homeService.profile.type === 'professional') {
+    if (this.profileService.profile.type === 'professional') {
       this.route.navigate(['./newProfessional'], { relativeTo: this.activatedRouter });
     }
     console.log('meu perfil');
@@ -84,7 +86,7 @@ export class HomePage implements OnInit {
 
   async logout() {
     try {
-      this.homeService.profile = '';
+      this.profileService.profile = '';
       await this.authService.logout();
     } catch (error) {
       console.log(error);
