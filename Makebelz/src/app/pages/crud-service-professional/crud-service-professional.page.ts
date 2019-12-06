@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-crud-service-professional',
@@ -8,16 +9,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CrudServiceProfessionalPage implements OnInit {
 
+  private readonly _profile = new BehaviorSubject<any>([]);
+  readonly profile$ = this._profile.asObservable();
+
   constructor(
     public route: Router,
-    public activatedRouter: ActivatedRoute
+    public activatedRouter: ActivatedRoute,
   ) { }
 
   ngOnInit() {
   }
 
-  view(){
-    
+  view()
+  {
+    this.route.navigate(['./viewServicos'], { relativeTo: this.activatedRouter });
   }
 
   edit() {

@@ -57,7 +57,7 @@
 
       <ion-item>
         <ion-label>Cabeleireira</ion-label>
-        <ion-toggle color="secondary" (click)="isToggle('cabeleireira')" [(ngModel)]="serv.cabeleireira" name="cabeleireira"></ion-toggle>
+        <ion-toggle color="secondary" (click)="isToggle('cabeleireira')" [(ngModel)]="serv.cabeleireira" name="cabeleireira" ></ion-toggle>
       </ion-item>
 
       <div *ngIf="map['cabeleireira']">
@@ -75,14 +75,15 @@
           <ion-icon slot="start" name="arrow-back" ></ion-icon>
             Voltar
           </ion-button>
-
         </ion-col>
+        
         <ion-col size="6">
-          <ion-button expand="full"  color="success" (click)="cadServices()" >
+          <ion-button expand="full"  color="success" (click)="cadServices()" routerLink="/crud-service-professional" >
               <ion-icon slot="start" name="checkmark"></ion-icon>
               Confirmar
             </ion-button>
         </ion-col>
+        
       </ion-row>
     </ion-grid>
   </form>

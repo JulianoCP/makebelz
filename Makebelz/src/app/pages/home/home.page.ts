@@ -39,7 +39,6 @@ export class HomePage implements OnInit {
     return this.profileService.profile.type === 'professional';
   }
 
-
   myProfile() {
     if (this.profileService.profile.type === 'client') {
       this.route.navigate(['./newClient'], {relativeTo: this.activatedRouter });
@@ -76,8 +75,15 @@ export class HomePage implements OnInit {
     this.route.navigate(['./contacts'], { relativeTo: this.activatedRouter });
   }
 
+  agenda(){
+    this.route.navigate(['./calendar'], { relativeTo: this.activatedRouter });
+  }
+
   calendar() {
     this.route.navigate(['./calendar'], { relativeTo: this.activatedRouter });
+  }
+  servicos() {
+    this.route.navigate(['./servicos'], { relativeTo: this.activatedRouter });
   }
 
   map() {
