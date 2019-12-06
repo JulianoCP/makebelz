@@ -19,7 +19,6 @@ export class HomeService {
   ) {}
 
 
-<<<<<<< HEAD
   // resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
   //   return new Promise((resolve, reject) => {
   //     Promise.all([this.getProfile()])
@@ -53,39 +52,5 @@ export class HomeService {
   // set profile(data) {
   //   this._profile.next(data);
   // }
-=======
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return new Promise((resolve, reject) => {
-      Promise.all([this.getProfile()])
-        .then(([a]) => {
-          resolve(a);
-        })
-        .catch(_ => reject);
-    });
-  }
-
-  getProfile() {
-    return new Promise((resolve, reject) => {
-      this.firestore.collection('Profile').doc(this.authService.getAuth().currentUser.uid).valueChanges().subscribe(
-        (res: any) => {
-          // console.log(res);
-          this._profile.next(res);
-          resolve(res);
-      },
-      e => {
-        console.log(e);
-        reject(e);
-      });
-    });
-  }
-
-  get profile() {
-    return this._profile.getValue();
-  }
-
-  set profile(data) {
-    this._profile.next(data);
-  }
->>>>>>> master
 
 }
