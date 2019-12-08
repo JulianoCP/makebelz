@@ -59,8 +59,10 @@ export class NewPage implements OnInit {
         usuario['Rua'] = this.re.end_numero;
       }
 
-      this.crudService.create_Usuario(usuario, firebase.auth().currentUser.uid,'Manicure').then(resp => {
-      console.log(usuario);
+      this.crudService.create(usuario, firebase.auth().currentUser.uid,'Manicure').then(resp => {
+        console.log(usuario);
+        this.router.navigate(['../../../home'], { relativeTo: this.activatedRoute });
+
       });
       // this.router.navigate(['../home'],{relativeTo:this.activatedRoute});
 

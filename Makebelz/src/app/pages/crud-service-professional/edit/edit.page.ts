@@ -11,94 +11,99 @@ import { AuthService } from '../../authentication/auth.service';
 })
 export class EditPage implements OnInit {
 
-  private  map = {'pedicure' : false,
-                 'manicure' : false, 
-                 'pele' : false, 
-                 'maquiadora' : false, 
-                 'cabeleireira' : false
-  }
-  
+  public  map = {
+    pedicure : false,
+    manicure : false,
+    estetica : false,
+    maquiagem : false,
+    cabelo : false
+  };
+
+
+  public serv = {
+    pedicure: false,
+    manicure: false,
+    estetica: false,
+    maquiagem: false,
+    cabelo: false,
+  };
+
+  public priceServ = {
+    pedicure: Number(0),
+    manicure: Number(0),
+    estetica: Number(0),
+    maquiagem: Number(0),
+    cabelo : Number(0),
+  };
+
+
   constructor(
     private crudService: CrudService,
     private firestore: AngularFirestore,
     private authService: AuthService
-  ) {
-
-  }
-  
-  private serv = {
-    pedicure: false,
-    manicure: false,
-    pele: false,
-    maquiadora: false,
-    cabeleireira: false,
-  };
-
-  private priceServ = {
-    pedicure: 0,
-    manicure: 0,
-    pele: 0,
-    maquiadora: 0,
-    cabeleireira : 0,
-  };
+  ) {}
 
 
   async ngOnInit() {
     await this.firestore.collection('Servicos').doc(this.authService.getAuth().currentUser.uid).valueChanges().subscribe(
       (res: any) => {
-        const{Manicure,Pele,Cabeleireira,Pedicure,Maquiadora } = res
-        this.priceServ.manicure = Manicure ? Manicure : 0
-        this.serv.manicure = Manicure ? true : false 
-        this.map["manicure"] = Manicure ? true : false
-        this.priceServ.pedicure = Pedicure ? Pedicure : 0
-        this.serv.pedicure = Pedicure ? true : false 
-        this.map["pedicure"] = Pedicure ? true : false
-        this.priceServ.cabeleireira = Cabeleireira ? Cabeleireira : 0
-        this.serv.cabeleireira = Cabeleireira ? true : false 
-        this.map["cabeleireira"] = Cabeleireira ? true : false
-        this.priceServ.pele = Pele ? Pele : 0
-        this.serv.pele = Pele ? true : false 
-        this.map["pele"] = Pele ? true : false
-        this.priceServ.maquiadora = Maquiadora ? Maquiadora : 0
-        this.serv.maquiadora = Maquiadora ? true : false 
-        this.map["maquiadora"] = Maquiadora ? true : false
-    })
+        const{Manicure, Estetica, Cabelo, Pedicure, Maquiagem } = res;
+
+        // dados manicure
+        this.priceServ.manicure = Manicure ? Manicure : 0;
+        this.serv.manicure = Manicure ? true : false;
+        this.map.manicure = Manicure ? true : false;
+
+        // dados pedicure
+        this.priceServ.pedicure = Pedicure ? Pedicure : 0;
+        this.serv.pedicure = Pedicure ? true : false;
+        this.map.pedicure = Pedicure ? true : false;
+
+        // dados cabeleireira
+        this.priceServ.cabelo = Cabelo ? Cabelo : 0;
+        this.serv.cabelo = Cabelo ? true : false;
+        this.map.cabelo = Cabelo ? true : false;
+
+        // dados estetica
+        this.priceServ.estetica = Estetica ? Estetica : 0;
+        this.serv.estetica = Estetica ? true : false;
+        this.map.estetica = Estetica ? true : false;
+
+        // dados maquiagem
+        this.priceServ.maquiagem = Maquiagem ? Maquiagem : 0;
+        this.serv.maquiagem = Maquiagem ? true : false;
+        this.map.maquiagem = Maquiagem ? true : false;
+    });
   }
 
-  isToggle(value)
-  {
+  isToggle(value) {
+    console.log(value);
     this.map[value] = !this.map[value];
   }
 
 
-  cadServices()
-  {
-    let service = {};
+  cadServices() {
+    const service = {
+      Maquiagem : Number(0),
+      Pedicure : Number(0),
+      Manicure : Number(0),
+      Estetica : Number(0),
+      Cabelo : Number(0)
+    };
 
     try {
+      this.map.maquiagem === true ? service.Maquiagem = this.priceServ.maquiagem : Number(0);
+      this.map.pedicure === true ? service.Pedicure = this.priceServ.pedicure : Number(0);
+      this.map.estetica === true ? service.Estetica = this.priceServ.estetica : Number(0);
+      this.map.manicure === true ? service.Manicure = this.priceServ.manicure : Number(0);
+      this.map.cabelo === true ? service.Cabelo = this.priceServ.cabelo : Number(0);
 
-        if ( this.map["pedicure"] == true ) {
-          service["Pedicure"] = this.priceServ.pedicure
-        }
-        if ( this.map["manicure"] == true ) {
-          service["Manicure"] = this.priceServ.manicure
-        }
-        if ( this.map["pele"] == true ) {
-          service["Pele"] = this.priceServ.pele
-        }
-        if ( this.map["maquiadora"] == true ) {
-          service["Maquiadora"] = this.priceServ.maquiadora
-        }
-        if ( this.map["cabeleireira"] == true ) {
-          service["Cabeleireira"] = this.priceServ.cabeleireira
-        }
-
-        this.crudService.create_Usuario(service, firebase.auth().currentUser.uid,'Servicos').then(resp => {
-          });
-      }catch(error){
-        console.log("Erro!");
-        console.log(error);
-      }
+      this.crudService.create(service, firebase.auth().currentUser.uid, 'Servicos').then(resp => {
+        });
+    } catch (error) {
+      console.log('Erro!');
+      console.log(error);
+    }
   }
 
 }

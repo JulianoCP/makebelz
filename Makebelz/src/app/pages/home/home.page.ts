@@ -62,9 +62,11 @@ export class HomePage implements OnInit {
     this.route.navigate(['./crudServiceProfessional'], { relativeTo: this.activatedRouter });
   }
 
-  horarios()
-  {
-    
+
+
+
+  horarios() {
+    this.route.navigate(['./scheduling'], { relativeTo: this.activatedRouter });
   }
 
   setting() {

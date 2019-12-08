@@ -22,10 +22,6 @@ const routes: Routes = [
     loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
   },
   {
-    path: 'calendar',
-    loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
-  },
-  {
     path: 'servicos',
     loadChildren: () => import('../crud-service-professional/view/view.module').then(m => m.ViewPageModule)
   },
@@ -33,7 +29,7 @@ const routes: Routes = [
     path: 'map',
     loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
   },
-    
+
   {
     path: 'newClient',
     loadChildren: () => import('../client/new/new.module').then(m => m.NewPageModule)
@@ -45,6 +41,10 @@ const routes: Routes = [
   {
     path: 'crudServiceProfessional',
     loadChildren: () => import('../crud-service-professional/crud-service-professional.module').then(m => m.CrudServiceProfessionalPageModule)
+  },
+  {
+    path: 'scheduling',
+    loadChildren: () => import('../scheduling/scheduling.module').then(m => m.SchedulingPageModule)
   }
 ];
 

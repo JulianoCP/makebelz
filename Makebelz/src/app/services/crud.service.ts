@@ -16,7 +16,7 @@ export class CrudService {
     private authService: AuthService
   ) { }
 
-  create_Usuario(record, id, collection) {
+  create(record, id, collection) {
     return this.firestore.collection(collection).doc(id).set(record);
   }
 
