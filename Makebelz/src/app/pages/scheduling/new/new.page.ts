@@ -29,14 +29,7 @@ export class NewPage implements OnInit {
   }
 
   confirm() {
-    console.log(this.week.segunda);
-    console.log(this.week.terca);
-    console.log(this.week.quarta);
-    console.log(this.week.quinta);
-    console.log(this.week.sexta);
-    console.log(this.week.sabado);
-    console.log(this.week.domingo);
-
+    console.log(this.week);
   }
 
 }
