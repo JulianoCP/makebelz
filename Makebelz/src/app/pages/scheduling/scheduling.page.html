@@ -1,22 +1,168 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title class="ion-text-center" color="dark">Lista Manicures</ion-title>
+    <ion-title>Horários</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Domingo</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Segunda-Feira</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
 
-  <div >
-      <ion-card *ngFor="let item of manicures">
-          <ion-card-header style="background-color: #f4f4f4">
-            <ion-card-title><span style="color:rgba(35, 14, 231, 0.795);">{{item.Name}}</span></ion-card-title>
-            <ion-card-content>
-              <span style="color: crimson">
-                {{item.Phone}}
-              </span>
-            </ion-card-content>
-          </ion-card-header>
-      </ion-card>
-  </div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Terça-Feira</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
 
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Quarta-Feira</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Quinta-Feira</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Sexta-Feira</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Sábado</ion-card-subtitle>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row class="ion-text-center">
+              <ion-col size="6">
+                Manhã
+              </ion-col>
+              
+              <ion-col size="6">
+                Tarde
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  
+
+  </ion-list>
 </ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+            <ion-button expand="block" color="primary" routerLink="../../../home">
+              <ion-icon slot="start" name="arrow-back" ></ion-icon>
+              Voltar
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" color="tertiary" routerLink="./new">
+            <ion-icon slot="start" name="add" ></ion-icon>
+              Add
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

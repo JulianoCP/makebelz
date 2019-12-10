@@ -5,22 +5,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
-import { HomeService } from './home.service';
+import { ProfileService } from '../authentication/profile/profile.service';
+// import { HomeService } from './home.service';
+// import { ProfileService } from '../authentication/profile/profile.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
     resolve: {
-      data: HomeService
-    },
+      profileService: ProfileService
+    }
   },
   {
     path: 'contacts',
-    loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
-  },
-  {
-    path: 'calendar',
     loadChildren: () => import('../contacts/contacts.module').then(m => m.ContactsPageModule)
   },
   {
@@ -31,7 +29,7 @@ const routes: Routes = [
     path: 'map',
     loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
   },
-    
+
   {
     path: 'newClient',
     loadChildren: () => import('../client/new/new.module').then(m => m.NewPageModule)
@@ -45,7 +43,7 @@ const routes: Routes = [
     loadChildren: () => import('../crud-service-professional/crud-service-professional.module').then(m => m.CrudServiceProfessionalPageModule)
   },
   {
-    path: 'newScheduling',
+    path: 'scheduling',
     loadChildren: () => import('../scheduling/scheduling.module').then(m => m.SchedulingPageModule)
   }
 ];
@@ -57,6 +55,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  providers: [ ProfileService ]
+
 })
 export class HomePageModule {}

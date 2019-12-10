@@ -69,7 +69,7 @@ export class ServicesProvidedPage implements OnInit {
           service["Cabeleireira"] = this.priceServ.cabeleireira
         }
 
-        this.crudService.create_Usuario(service, firebase.auth().currentUser.uid,'Servicos').then(resp => {
+        this.crudService.create(service, firebase.auth().currentUser.uid,'Servicos').then(resp => {
           console.log(service);
           });
       }catch(error){

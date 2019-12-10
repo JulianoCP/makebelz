@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header no-border>
   <ion-toolbar>
     <ion-title class="ion-text-center" color="dark">Servicos</ion-title>
   </ion-toolbar>
@@ -7,36 +7,34 @@
 
 <ion-content>
 
-  <div>
-      <ion-grid>
-          <ion-row class="full-width">
-  <ion-col size="6">
-    <ion-button expand="full"  color="tertiary" (click)="view()" >
-    <ion-icon slot="start" name="list" ></ion-icon>
-      View
-    </ion-button>
-  </ion-col>
-
-  <ion-col size="6">
-      <ion-button expand="full"  color="tertiary" (click)="edit()" >
-      <ion-icon slot="start" name="create" ></ion-icon>
-        Edit
-      </ion-button>
-    </ion-col>
-
-  </ion-row>
-</ion-grid>
-
-  <ion-grid>
-    <ion-row class="full-width">
-      <ion-col size="12">
-        <ion-button expand="full"  color="tertiary" routerLink="/home" >
-        <ion-icon slot="start" name="arrow-back" ></ion-icon>
-          Voltar
+  <div padding-top="80px">
+    <ion-grid>
+      <ion-row class="full-width">
+      <ion-col size="6">
+        <ion-button expand="block"  color="tertiary" (click)="view()" >
+          <ion-icon slot="start" name="list" ></ion-icon>
+            Ver
         </ion-button>
       </ion-col>
+
+      <ion-col size="6">
+          <ion-button expand="block"  color="tertiary" (click)="edit()" >
+          <ion-icon slot="start" name="create" ></ion-icon>
+            Add
+        </ion-button>
+      </ion-col>
+
     </ion-row>
   </ion-grid>
 </div>
 
 </ion-content>
+
+<ion-footer no-border padding-bottom="50px">
+  <ion-toolbar>
+    <ion-button expand="block"  color="tertiary" routerLink="/home" >
+      <ion-icon slot="start" name="arrow-back" ></ion-icon>
+        Voltar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

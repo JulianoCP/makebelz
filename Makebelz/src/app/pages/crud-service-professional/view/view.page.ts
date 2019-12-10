@@ -10,14 +10,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ViewPage implements OnInit {
 
-  private readonly _profile = new BehaviorSubject<any>([]);
-  readonly profile$ = this._profile.asObservable();
-
-  public manicure = 0
-  public pedicure = 0
-  public cabeleireira = 0
-  public pele = 0
-  public maquiadora = 0
+  public manicure = 0;
+  public pedicure = 0;
+  public cabelo = 0;
+  public estetica = 0;
+  public maquiagem = 0;
 
   constructor(
     private firestore: AngularFirestore,
@@ -27,13 +24,14 @@ export class ViewPage implements OnInit {
   async ngOnInit() {
     await this.firestore.collection('Servicos').doc(this.authService.getAuth().currentUser.uid).valueChanges().subscribe(
       (res: any) => {
-        const{Manicure,Pele,Cabeleireira,Pedicure,Maquiadora } = res
-        this.manicure = Manicure ? Manicure : 0
-        this.pedicure = Pedicure ? Pedicure : 0
-        this.cabeleireira = Cabeleireira ? Cabeleireira : 0
-        this.pele = Pele ? Pele : 0
-        this.maquiadora = Maquiadora ? Maquiadora : 0 
-    })
+        const{Manicure, Estetica, Cabelo, Pedicure, Maquiagem } = res;
+        this.maquiagem = Maquiagem ? Maquiagem : 0;
+        this.manicure = Manicure ? Manicure : 0;
+        this.pedicure = Pedicure ? Pedicure : 0;
+        this.estetica = Estetica ? Estetica : 0;
+        this.cabelo = Cabelo ? Cabelo : 0;
+        console.log(res);
+    });
   }
 
 }

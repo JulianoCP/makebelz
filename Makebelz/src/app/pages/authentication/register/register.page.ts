@@ -76,7 +76,7 @@ export class RegisterPage implements OnInit {
       try {
         // método que cria o usuáro e insere o tipo de perfil no banco.
         await this.authService.register(this.loginRegister).then(res => {
-          this.crudService.create_Usuario(this.profile , firebase.auth().currentUser.uid, 'Profile').then(resp => {
+          this.crudService.create(this.profile , firebase.auth().currentUser.uid, 'Profile').then(resp => {
             console.log('dado inserido com sucesso');
           }).catch (error => {
             console.log('dado não inserido!!', error);

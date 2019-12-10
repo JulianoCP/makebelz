@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-title class="ion-text-center" color="dark">Serviços Prestados</ion-title>
   </ion-toolbar>
@@ -12,7 +12,7 @@
         <ion-toggle color="secondary" (click)="isToggle('pedicure')" [(ngModel)]="serv.pedicure" name="pedicure" ></ion-toggle>
       </ion-item>
 
-      <div *ngIf="map['pedicure']">
+      <div *ngIf="map.pedicure">
         <ion-item color="light">
           <ion-label >Custo deste serviço:</ion-label>
           <ion-input required [(ngModel)]="priceServ.pedicure" type="number" name="pedicure"></ion-input>
@@ -24,7 +24,7 @@
         <ion-toggle color="secondary" (click)="isToggle('manicure')" [(ngModel)]="serv.manicure" name="manicure" ></ion-toggle>
       </ion-item>
 
-      <div *ngIf="map['manicure']">
+      <div *ngIf="map.manicure">
           <ion-item color="light">
             <ion-label >Custo deste serviço:</ion-label>
             <ion-input required [(ngModel)]="priceServ.manicure" type="number" name="manicure"></ion-input>
@@ -32,38 +32,38 @@
         </div>
 
       <ion-item>
-        <ion-label>Limpeza de pele</ion-label>
-        <ion-toggle color="secondary" (click)="isToggle('pele')" [(ngModel)]="serv.pele" name="pele"></ion-toggle>
+        <ion-label>Serviços Estéticos</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('estetica')" [(ngModel)]="serv.estetica" name="estetica"></ion-toggle>
       </ion-item>
 
-      <div *ngIf="map['pele']">
+      <div *ngIf="map.estetica">
           <ion-item color="light">
             <ion-label >Custo deste serviço:</ion-label>
-            <ion-input required [(ngModel)]="priceServ.pele" type="number" name="pele"></ion-input>
+            <ion-input required [(ngModel)]="priceServ.estetica" type="number" name="estetica"></ion-input>
           </ion-item>
         </div>
 
       <ion-item>
-        <ion-label>Maquiadora</ion-label>
-        <ion-toggle color="secondary" (click)="isToggle('maquiadora')" [(ngModel)]="serv.maquiadora" name="maquiadora"></ion-toggle>
+        <ion-label>Maquiagem</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('maquiagem')" [(ngModel)]="serv.maquiagem" name="maquiagem"></ion-toggle>
       </ion-item>
 
-      <div *ngIf="map['maquiadora']">
+      <div *ngIf="map.maquiagem">
           <ion-item color="light">
             <ion-label >Custo deste serviço:</ion-label>
-            <ion-input required [(ngModel)]="priceServ.maquiadora" type="number" name="price" name="maquiadora"></ion-input>
+            <ion-input required [(ngModel)]="priceServ.maquiagem" type="number" name="maquiagem"></ion-input>
           </ion-item>
         </div>
 
       <ion-item>
-        <ion-label>Cabeleireira</ion-label>
-        <ion-toggle color="secondary" (click)="isToggle('cabeleireira')" [(ngModel)]="serv.cabeleireira" name="cabeleireira" ></ion-toggle>
+        <ion-label>Cabelo</ion-label>
+        <ion-toggle color="secondary" (click)="isToggle('cabelo')" [(ngModel)]="serv.cabelo" name="cabelo" ></ion-toggle>
       </ion-item>
 
-      <div *ngIf="map['cabeleireira']">
+      <div *ngIf="map.cabelo">
         <ion-item color="light">
           <ion-label >Custo deste serviço:</ion-label>
-          <ion-input required [(ngModel)]="priceServ.cabeleireira" type="number" name="cabeleireira"></ion-input>
+          <ion-input required [(ngModel)]="priceServ.cabelo" type="number" name="cabelo"></ion-input>
         </ion-item>
       </div>
 
@@ -89,3 +89,11 @@
   </form>
 
 </ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-card>
+      <h5>Preços igual ou menor que zero não é válido</h5>
+    </ion-card>
+  </ion-toolbar>
+</ion-footer>
