@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../authentication/auth.service';
-import { async } from '@angular/core/testing';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({

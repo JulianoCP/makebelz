@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './pages/authentication/login/login.module#LoginPageModule', canActivate: [LoginGuard] },
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule', canActivate: [AuthGuard] },
-  // { path: 'crud-service-professional', loadChildren: './pages/crud-service-professional/crud-service-professional.module#CrudServiceProfessionalPageModule' },
+  { path: 'crud-service-professional', loadChildren: './pages/crud-service-professional/crud-service-professional.module#CrudServiceProfessionalPageModule' },
   // { path: 'new', loadChildren: './pages/crud-service-professional/new/new.module#NewPageModule' },
   // { path: 'edit', loadChildren: './pages/crud-service-professional/edit/edit.module#EditPageModule' },
   // { path: 'delete', loadChildren: './pages/crud-service-professional/delete/delete.module#DeletePageModule' },
